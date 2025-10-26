@@ -1,0 +1,68 @@
+/* Student FeaturedUpdates Component Styles */
+.student-app .featured-updates {
+  padding: 5rem 0;
+  background: white;
+}
+
+.student-app .updates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.student-app .update-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.student-app .update-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.student-app .update-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.student-app .update-category {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.student-app .update-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.student-app .update-description {
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.student-app .update-time {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for Featured Updates */
+@media (max-width: 768px) {
+  .student-app .updates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .student-app .update-card {
+    padding: 1.5rem;
+  }
+}

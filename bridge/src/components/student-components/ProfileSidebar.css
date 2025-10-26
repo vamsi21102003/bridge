@@ -1,0 +1,308 @@
+/* Student ProfileSidebar Component Styles */
+.student-app .sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1998;
+  backdrop-filter: blur(4px);
+}
+
+.student-app .profile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 1999;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.student-app .profile-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.student-app .profile-sidebar::-webkit-scrollbar-track {
+  background: #f7fafc;
+}
+
+.student-app .profile-sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.student-app .profile-sidebar.open {
+  right: 0;
+}
+
+.student-app .sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.student-app .sidebar-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.student-app .close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.student-app .close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.student-app .profile-info {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.student-app .profile-avatar {
+  margin-bottom: 1rem;
+}
+
+.student-app .profile-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #667eea;
+}
+
+.student-app .profile-details h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .profile-details p {
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.student-app .view-profile-btn {
+  background: transparent;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.student-app .view-profile-btn:hover {
+  text-decoration: underline;
+}
+
+.student-app .profile-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.student-app .stat-box {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 10px;
+}
+
+.student-app .stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.student-app .stat-label {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.student-app .profile-completion {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  margin: 1rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.student-app .completion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #744210;
+}
+
+.student-app .completion-percentage {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.student-app .profile-completion p {
+  color: #744210;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.student-app .complete-profile-btn {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.student-app .complete-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+.student-app .sidebar-section {
+  padding: 1rem 0;
+}
+
+.student-app .sidebar-section h4 {
+  padding: 0 1.5rem 1rem 1.5rem;
+  color: #718096;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.student-app .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-app .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.student-app .menu-item:hover {
+  background: #f7fafc;
+  border-left-color: #667eea;
+}
+
+.student-app .menu-item.premium:hover,
+.student-app .menu-item.pro-feature:hover {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-left-color: #feca57;
+}
+
+.student-app .menu-icon {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  width: 24px;
+  text-align: center;
+}
+
+.student-app .menu-item span:nth-child(2) {
+  flex: 1;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.student-app .pro-badge {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.student-app .pro-feature {
+  opacity: 0.7;
+}
+
+.student-app .pro-feature:hover {
+  opacity: 1;
+}
+
+.student-app .sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+}
+
+.student-app .logout-btn {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid #e2e8f0;
+  color: #718096;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.student-app .logout-btn:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+/* Responsive Design for Profile Sidebar */
+@media (max-width: 768px) {
+  .student-app .profile-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .student-app .profile-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

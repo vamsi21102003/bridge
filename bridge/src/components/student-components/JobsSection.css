@@ -1,0 +1,123 @@
+/* Student JobsSection Component Styles */
+.student-app .jobs-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.student-app .jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.student-app .job-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-app .job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.student-app .job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.student-app .job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.student-app .job-company {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .job-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .job-location {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.student-app .job-salary {
+  background: linear-gradient(45deg, #48bb78, #38a169);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.student-app .job-description {
+  color: #718096;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.student-app .job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.student-app .skill-tag {
+  background: #e2e8f0;
+  color: #4a5568;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.student-app .job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-app .job-posted {
+  color: #a0aec0;
+  font-size: 0.8rem;
+}
+
+/* Responsive Design for Jobs Section */
+@media (max-width: 768px) {
+  .student-app .jobs-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .student-app .job-card {
+    padding: 1.5rem;
+  }
+  
+  .student-app .job-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,229 @@
+/* Student BadgesSection Component Styles */
+.student-app .badges-section {
+  padding: 5rem 0;
+  background: white;
+}
+
+.student-app .badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.student-app .badge-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-app .badge-card.earned {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-color: #feca57;
+}
+
+.student-app .badge-card.locked {
+  opacity: 0.6;
+  background: #f7fafc;
+}
+
+.student-app .badge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.student-app .badge-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #cbd5e0;
+  transition: all 0.3s ease;
+}
+
+.student-app .badge-card.earned .badge-icon {
+  color: #feca57;
+  animation: badgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badgeGlow {
+  0% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(254, 202, 87, 0.5));
+  }
+  100% { 
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(254, 202, 87, 0.8));
+  }
+}
+
+.student-app .badge-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .badge-card.earned .badge-title {
+  color: #744210;
+}
+
+.student-app .badge-description {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.student-app .badge-card.earned .badge-description {
+  color: #744210;
+}
+
+.student-app .badge-progress {
+  margin-bottom: 1rem;
+}
+
+.student-app .progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.student-app .progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.student-app .progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.student-app .badge-card.earned .progress-fill {
+  background: linear-gradient(45deg, #feca57, #ff6b6b);
+}
+
+.student-app .badge-requirements {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.student-app .requirements-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.student-app .requirements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.student-app .requirements-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.student-app .requirements-list li::before {
+  content: '•';
+  color: #cbd5e0;
+  margin-right: 0.5rem;
+}
+
+.student-app .requirements-list li.completed::before {
+  content: '✓';
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.student-app .badge-earned-date {
+  background: rgba(254, 202, 87, 0.2);
+  color: #744210;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.student-app .badge-locked-message {
+  color: #a0aec0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Badge Categories */
+.student-app .badges-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.student-app .category-filter {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #718096;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.student-app .category-filter.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.student-app .category-filter:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.student-app .category-filter.active:hover {
+  color: white;
+}
+
+/* Responsive Design for Badges Section */
+@media (max-width: 768px) {
+  .student-app .badges-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .student-app .badge-card {
+    padding: 1.5rem;
+  }
+  
+  .student-app .badge-icon {
+    font-size: 3rem;
+  }
+  
+  .student-app .badges-categories {
+    gap: 0.5rem;
+  }
+  
+  .student-app .category-filter {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}

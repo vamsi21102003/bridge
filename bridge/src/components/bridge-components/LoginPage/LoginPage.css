@@ -1,0 +1,684 @@
+/* LoginPage.css - 50% Width Container */
+.login-container {
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Remove purple background animations */
+.background-animation {
+  display: none;
+}
+
+/* Decorative background replacing Spline */
+.decorative-background {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  width: 50%; /* Reduced to 50% of screen width */
+  max-width: 800px; /* Adjusted max-width for better proportions */
+  min-height: 550px;
+  max-height: 90vh;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.6s ease-in-out;
+}
+
+/* Keep all existing form container styles exactly as they are */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  width: 50%;
+  overflow: hidden;
+}
+
+.sign-up {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+/* Keep all existing form styles exactly as they are */
+.form {
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 40px;
+  height: 100%;
+  text-align: center;
+  border-radius: 20px;
+  margin: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Keep all existing element styles exactly as they are */
+.form-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+  width: 100%;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  justify-content: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+.icon {
+  border: none;
+  border-radius: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.glowing-icon {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.user-type-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.type-btn {
+  padding: 10px 16px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 90px;
+  justify-content: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.type-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.type-btn:hover {
+  transform: translateY(-2px);
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+  max-width: 100%;
+}
+
+.input-field {
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 14px 20px 14px 75px;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.glowing-input {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #667eea, #764ba2) border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+  width: 30px;
+  text-align: center;
+}
+
+.input-field:focus + .input-icon {
+  color: #667eea;
+}
+
+/* Ensure placeholder text doesn't overlap with icon */
+.input-field::placeholder {
+  color: #999;
+  opacity: 0.7;
+  text-indent: 0;
+}
+
+.input-field:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Additional spacing to prevent any overlap */
+.input-field {
+  text-indent: 0;
+  padding-left: 75px !important;
+}
+
+select.input-field {
+  padding-left: 75px !important;
+}
+
+/* Ensure select elements have the same padding as input fields */
+select.input-field {
+  padding: 14px 20px 14px 75px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+}
+
+@media (max-width: 480px) {
+  select.input-field {
+    padding: 12px 18px 12px 70px !important;
+    background-position: right 12px center;
+    background-size: 14px;
+  }
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 13px;
+  max-width: 100%;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  cursor: pointer;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.remember-me input {
+  display: none;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.remember-me input:checked + .checkmark {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-color: transparent;
+}
+
+.remember-me input:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forgot-password {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.forgot-password:hover {
+  color: #764ba2;
+}
+
+.submit-btn {
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 30px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.glowing-btn {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn.ghost {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.submit-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  z-index: 1000;
+  border-radius: 20px;
+}
+
+.toggle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100%;
+  color: #FFFFFF;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+  box-sizing: border-box;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.toggle-panel h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+.toggle-panel p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  width: 100%;
+  text-align: center;
+}
+
+/* Animation States - Keep existing */
+.container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+.container.active .toggle-container {
+  transform: translateX(-100%);
+}
+
+.container.active .toggle {
+  transform: translateX(50%);
+}
+
+.container.active .toggle-left {
+  transform: translateX(0);
+}
+
+.container.active .toggle-right {
+  transform: translateX(200%);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    width: 60%; /* Slightly wider on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 85%; /* Wider on tablets */
+    height: 100vh;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+  
+  .form-container {
+    width: 100%;
+  }
+  
+  .toggle-container {
+    display: none;
+  }
+  
+  .container.active .sign-up,
+  .container.active .sign-in {
+    transform: translateX(0);
+  }
+  
+  .form {
+    padding: 30px 25px;
+    margin: 10px;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+  }
+  
+  .user-type-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .type-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%; /* Nearly full width on mobile */
+    border-radius: 15px;
+  }
+  
+  .form {
+    padding: 25px 20px;
+    margin: 8px;
+  }
+  
+  .form-title {
+    font-size: 1.6rem;
+  }
+  
+  .submit-btn {
+    padding: 12px 25px;
+    font-size: 13px;
+  }
+  
+  .input-field {
+    padding: 12px 18px 12px 70px !important;
+  }
+  
+  .input-icon {
+    left: 16px;
+    font-size: 16px;
+    width: 28px;
+  }
+  
+  .toggle-panel {
+    padding: 0 20px;
+  }
+  
+  .toggle-panel h1 {
+    font-size: 1.5rem;
+  }
+  
+  .toggle-panel p {
+    font-size: 13px;
+  }
+}
+
+/* Ensure perfect centering */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Prevent any element clipping */
+.form * {
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* Close Button */
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #667eea;
+  font-size: 16px;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #667eea;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  color: #764ba2;
+}
+
+.close-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive close button */
+@media (max-width: 768px) {
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}/* Modal-specific styles */
+.login-container.modal-mode {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: auto;
+  background: transparent;
+  overflow: hidden;
+}
+
+.login-container.modal-mode .decorative-background {
+  display: none;
+}
+
+.login-container.modal-mode .close-btn {
+  display: none; /* Hide LoginPage close button when in modal, use modal's close button */
+}
+
+.login-container.modal-mode .container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Adjust form containers for modal */
+.modal-mode .form-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+  .login-container.modal-mode {
+    padding: 20px;
+  }
+  
+  .modal-mode .container {
+    flex-direction: column;
+  }
+  
+  .modal-mode .form-container {
+    width: 100%;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,442 @@
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Features Section Cards - 6 Cards with Liquid Glass Effects */
+.features-card {
+  padding: 2rem;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* Liquid Glass Background Effects for Features Cards */
+.features-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.features-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  animation: features-liquid-float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes features-liquid-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -15px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, -20px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-15px, -10px) rotate(270deg);
+  }
+}
+
+.features-card.active {
+  transform: translateY(-10px) scale(1.05);
+  z-index: 10;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.25);
+}
+
+.features-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 36px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Liquid Glass Effect Variations for Different Feature Card Types */
+.features-card.glass-neon {
+  background: rgba(76, 201, 240, 0.08);
+  border-color: rgba(76, 201, 240, 0.2);
+}
+
+.features-card.glass-neon:hover {
+  background: rgba(76, 201, 240, 0.12);
+  border-color: rgba(76, 201, 240, 0.3);
+  box-shadow: 0 16px 36px 0 rgba(76, 201, 240, 0.15);
+}
+
+.features-card.glass-neon.active {
+  background: rgba(76, 201, 240, 0.15);
+  border-color: rgba(76, 201, 240, 0.4);
+  box-shadow: 0 20px 40px 0 rgba(76, 201, 240, 0.25);
+}
+
+.features-card.glass-holographic {
+  background: rgba(67, 97, 238, 0.08);
+  border-color: rgba(67, 97, 238, 0.2);
+}
+
+.features-card.glass-holographic:hover {
+  background: rgba(67, 97, 238, 0.12);
+  border-color: rgba(67, 97, 238, 0.3);
+  box-shadow: 0 16px 36px 0 rgba(67, 97, 238, 0.15);
+}
+
+.features-card.glass-holographic.active {
+  background: rgba(67, 97, 238, 0.15);
+  border-color: rgba(67, 97, 238, 0.4);
+  box-shadow: 0 20px 40px 0 rgba(67, 97, 238, 0.25);
+}
+
+.features-card.glass-liquid {
+  background: rgba(247, 37, 133, 0.08);
+  border-color: rgba(247, 37, 133, 0.2);
+}
+
+.features-card.glass-liquid:hover {
+  background: rgba(247, 37, 133, 0.12);
+  border-color: rgba(247, 37, 133, 0.3);
+  box-shadow: 0 16px 36px 0 rgba(247, 37, 133, 0.15);
+}
+
+.features-card.glass-liquid.active {
+  background: rgba(247, 37, 133, 0.15);
+  border-color: rgba(247, 37, 133, 0.4);
+  box-shadow: 0 20px 40px 0 rgba(247, 37, 133, 0.25);
+}
+
+.features-card.glass-frosted {
+  background: rgba(114, 9, 183, 0.08);
+  border-color: rgba(114, 9, 183, 0.2);
+}
+
+.features-card.glass-frosted:hover {
+  background: rgba(114, 9, 183, 0.12);
+  border-color: rgba(114, 9, 183, 0.3);
+  box-shadow: 0 16px 36px 0 rgba(114, 9, 183, 0.15);
+}
+
+.features-card.glass-frosted.active {
+  background: rgba(114, 9, 183, 0.15);
+  border-color: rgba(114, 9, 183, 0.4);
+  box-shadow: 0 20px 40px 0 rgba(114, 9, 183, 0.25);
+}
+
+/* Features Section Icon Wrapper with Glass Effect */
+.features-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.features-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  border-radius: 20px;
+}
+
+.features-icon-wrapper i {
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+}
+
+.features-icon-wrapper svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.features-card:hover .features-icon-wrapper svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* Features Section Content Layering */
+.features-card h3,
+.features-card p {
+  position: relative;
+  z-index: 3;
+}
+
+/* Features Section Hover Indicator */
+.features-hover-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.features-indicator-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.features-card:hover .features-indicator-bar {
+  width: 100%;
+}
+
+/* Feature Spotlight */
+.feature-spotlight {
+  padding: 2rem;
+  height: 400px;
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s ease;
+  border-radius: 24px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 28px 0 rgba(31, 38, 135, 0.18);
+  overflow: hidden;
+}
+
+.feature-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.feature-spotlight::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.05) 0%, transparent 70%);
+  animation: spotlight-liquid 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes spotlight-liquid {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+  }
+}
+
+.spotlight-content {
+  animation: fadeInUp 0.6s ease;
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spotlight-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 4;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.spotlight-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  border-radius: 25px;
+}
+
+.spotlight-icon svg {
+  width: 40px;
+  height: 40px;
+  color: white;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  z-index: 2;
+  position: relative;
+}
+
+.spotlight-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.spotlight-placeholder {
+  opacity: 0.6;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.spotlight-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* Discover Icon Styles */
+.discover-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.discover-icon-wrapper svg {
+  animation: discover-rotate 8s linear infinite;
+  filter: drop-shadow(0 4px 12px rgba(76, 201, 240, 0.3));
+}
+
+.discover-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(76, 201, 240, 0.4);
+  border-radius: 50%;
+  animation: discover-pulse 2s ease-in-out infinite;
+}
+
+@keyframes discover-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes discover-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-spotlight {
+    height: auto;
+    min-height: 200px;
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,50 @@
+/* Main CSS File - Imports all component styles */
+
+/* Base Styles */
+@import './base/reset.css';
+
+/* Layout Styles */
+@import './layout/container.css';
+
+/* Component Styles */
+@import './components/Header.css';
+@import './components/Hero.css';
+@import './components/FeaturedUpdates.css';
+@import './components/JobsSection.css';
+@import './components/CoursesSection.css';
+@import './components/InternshipsSection.css';
+@import './components/NetworkingSection.css';
+@import './components/MockPracticeSection.css';
+@import './components/ProfileSidebar.css';
+
+/* Utility Styles */
+@import './utilities/animations.css';
+@import './utilities/helpers.css';
+
+/* Global Overrides */
+.student-app {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
