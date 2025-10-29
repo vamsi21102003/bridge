@@ -1,4 +1,4 @@
-// Core types for BriDGe Landing Page
+// Core types for EMPBriDGe Landing Page
 export interface Job {
   id: string
   title: string
