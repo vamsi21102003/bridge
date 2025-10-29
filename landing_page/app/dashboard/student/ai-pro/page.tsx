@@ -153,6 +153,177 @@ const AIProPage: React.FC = () => {
             <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl font-semibold text-lg hover:opacity-90 transform hover:scale-105 transition-all duration-300 shadow-2xl">
               Start Free Trial ✨
             </button>
+
+            {/* AI SkillGap Analyser Oval Button */}
+            <div className="mt-6">
+              <button className="group relative px-10 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-bold text-lg hover:from-emerald-600 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white/20">
+                <span className="flex items-center space-x-3">
+                  <span className="text-xl animate-pulse">🧠</span>
+                  <span>AI SKILLGAP ANALYSER</span>
+                  <span className="text-xl animate-bounce">📊</span>
+                </span>
+                
+                {/* FREE Tag */}
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold animate-bounce shadow-lg border-2 border-white">
+                  <span className="flex items-center space-x-1">
+                    <span className="text-xs">🎁</span>
+                    <span>FREE</span>
+                  </span>
+                </div>
+                
+                {/* Shine Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-full"></div>
+              </button>
+              
+              <p className="text-sm text-gray-600 mt-2 opacity-90">
+                ✨ Discover your skill gaps instantly • No signup required
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI SkillGap Analyser Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 rounded-3xl p-8 md:p-12 overflow-hidden border border-emerald-200/50 shadow-2xl">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-8 left-8 w-16 h-16 bg-emerald-500 rounded-full animate-pulse"></div>
+            <div className="absolute top-20 right-12 w-12 h-12 bg-teal-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-16 left-16 w-20 h-20 bg-cyan-500 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-8 right-8 w-14 h-14 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+
+          {/* Enhanced Floating Analytics Icons */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-12 left-20 text-3xl opacity-25 animate-bounce">📊</div>
+            <div className="absolute top-32 right-24 text-4xl opacity-20 animate-spin" style={{ animationDuration: '4s' }}>📈</div>
+            <div className="absolute bottom-24 left-32 text-3xl opacity-25 animate-pulse">🎯</div>
+            <div className="absolute bottom-12 right-20 text-4xl opacity-20 animate-bounce" style={{ animationDelay: '1s' }}>⚡</div>
+            <div className="absolute top-1/2 left-12 text-2xl opacity-15 animate-ping">🔍</div>
+            <div className="absolute top-20 left-1/2 text-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}>💡</div>
+            <div className="absolute bottom-32 right-1/3 text-2xl opacity-15 animate-bounce" style={{ animationDelay: '1.5s' }}>🚀</div>
+          </div>
+
+          <div className="relative z-10">
+            {/* Enhanced FREE Badge */}
+            <div className="flex justify-center mb-6">
+              <div className="relative group">
+                <div className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse hover:animate-none hover:scale-110 transition-all duration-300 border-2 border-white/30">
+                  <span className="flex items-center space-x-2">
+                    <span className="text-2xl animate-spin" style={{ animationDuration: '3s' }}>🎯</span>
+                    <span>FREE TOOL</span>
+                    <span className="text-2xl animate-bounce">🚀</span>
+                  </span>
+                </div>
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-3 py-2 rounded-full font-bold animate-bounce shadow-lg border-2 border-white">
+                  <span className="flex items-center space-x-1">
+                    <span className="text-sm">⭐</span>
+                    <span>NEW</span>
+                  </span>
+                </div>
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-emerald-500 animate-pulse"></div>
+              </div>
+            </div>
+
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center text-4xl shadow-2xl animate-bounce hover:animate-spin hover:scale-110 transition-all duration-300 border-4 border-white/30">
+                  🧠
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent animate-pulse">
+                  AI SKILL GAP ANALYSER
+                </h2>
+                <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-3xl flex items-center justify-center text-4xl shadow-2xl animate-bounce hover:animate-pulse hover:scale-110 transition-all duration-300 border-4 border-white/30" style={{ animationDelay: '0.5s' }}>
+                  📊
+                </div>
+              </div>
+              
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+                Discover your skill gaps instantly with our advanced AI analysis. Get personalized recommendations to bridge the gap between your current skills and your dream job requirements.
+              </p>
+            </div>
+
+            {/* Feature Highlights */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-emerald-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-md">
+                    🎯
+                  </div>
+                  <h3 className="font-bold text-gray-800 mb-2">Instant Analysis</h3>
+                  <p className="text-sm text-gray-600">Get comprehensive skill gap analysis in under 60 seconds</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-teal-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-md">
+                    📈
+                  </div>
+                  <h3 className="font-bold text-gray-800 mb-2">Smart Recommendations</h3>
+                  <p className="text-sm text-gray-600">AI-powered learning paths tailored to your career goals</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-cyan-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-md">
+                    ⚡
+                  </div>
+                  <h3 className="font-bold text-gray-800 mb-2">Real-time Updates</h3>
+                  <p className="text-sm text-gray-600">Track your progress and get updated recommendations</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Benefits */}
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-emerald-200/30">
+              <h3 className="text-xl font-bold text-center text-gray-800 mb-6">What You'll Get:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <span className="text-gray-700">Detailed skill assessment report</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <span className="text-gray-700">Industry-specific skill requirements</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <span className="text-gray-700">Personalized learning roadmap</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <span className="text-gray-700">Career advancement timeline</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced CTA Button */}
+            <div className="text-center">
+              <button className="group relative px-10 py-5 bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-600 text-white rounded-3xl font-bold text-xl hover:from-emerald-600 hover:via-teal-700 hover:to-cyan-700 transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-3xl border-2 border-white/30">
+                <span className="flex items-center space-x-3">
+                  <span className="text-2xl animate-spin" style={{ animationDuration: '2s' }}>🚀</span>
+                  <span>Analyze My Skills Now</span>
+                  <span className="text-2xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </span>
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm px-3 py-2 rounded-full font-bold animate-pulse shadow-lg border-2 border-white">
+                  <span className="flex items-center space-x-1">
+                    <span className="animate-bounce">🎁</span>
+                    <span>FREE</span>
+                  </span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </button>
+              <p className="text-base text-gray-700 mt-4 font-medium">
+                <span className="inline-flex items-center space-x-2">
+                  <span className="text-lg animate-pulse">✨</span>
+                  <span>No signup required • Instant results • 100% Free forever</span>
+                  <span className="text-lg animate-pulse" style={{ animationDelay: '0.5s' }}>✨</span>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </section>

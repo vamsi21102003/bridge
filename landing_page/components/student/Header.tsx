@@ -12,86 +12,86 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onProfileClick }) => {
   const { language, setLanguage, t } = useLanguage();
-  const { user, isAuthenticated } = useStudentAuth();
+  const { } = useStudentAuth();
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-white/20">
+    <header className="sticky top-0 z-50 bg-slate-700 backdrop-blur-xl border-b border-slate-600/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">
-              BriDGe
+          <Link href="/dashboard/student" className="flex items-center space-x-2 flex-shrink-0">
+            <div className="text-2xl md:text-3xl font-bold text-white">
+              STUBriDGe
             </div>
           </Link>
 
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-md lg:max-w-lg mx-4 lg:mx-8">
+          <div className="hidden md:flex flex-1 max-w-sm lg:max-w-md xl:max-w-lg mx-6 lg:mx-8">
             <div className="relative w-full">
               <input
                 type="text"
                 placeholder={t('nav.search')}
-                className="w-full px-4 py-2.5 pl-10 pr-4 text-gray-700 bg-white/60 backdrop-blur-md border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:bg-white/70 focus:bg-white/80"
+                className="w-full px-4 py-3 pl-11 pr-4 text-gray-700 bg-white/95 backdrop-blur-md border border-slate-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white focus:bg-white shadow-sm"
               />
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <span className="text-gray-400 text-lg">🔍</span>
+              <div className="absolute inset-y-0 left-0 flex items-center pl-4">
+                <span className="text-gray-500 text-lg">🔍</span>
               </div>
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <Link
               href="/opportunities"
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="flex items-center space-x-1.5 text-white/90 hover:text-white font-medium transition-colors text-sm xl:text-base"
             >
-              <span className="text-lg">💼</span>
+              <span className="text-base xl:text-lg">💼</span>
               <span>{t('nav.opportunities')}</span>
             </Link>
             <Link
               href="/mentors"
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="flex items-center space-x-1.5 text-white/90 hover:text-white font-medium transition-colors text-sm xl:text-base"
             >
-              <span className="text-lg">👨‍🏫</span>
+              <span className="text-base xl:text-lg">👨‍🏫</span>
               <span>{t('nav.mentors')}</span>
             </Link>
             <Link
               href="/games"
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="flex items-center space-x-1.5 text-white/90 hover:text-white font-medium transition-colors text-sm xl:text-base"
             >
-              <span className="text-lg">🎮</span>
+              <span className="text-base xl:text-lg">🎮</span>
               <span>{t('nav.games')}</span>
             </Link>
             <Link
               href="/badges"
-              className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="flex items-center space-x-1.5 text-white/90 hover:text-white font-medium transition-colors text-sm xl:text-base"
             >
-              <span className="text-lg">🏆</span>
+              <span className="text-base xl:text-lg">🏆</span>
               <span>{t('nav.badges')}</span>
             </Link>
             <Link
               href="/ai-pro"
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:opacity-90 transition-opacity relative"
+              className="flex items-center space-x-1.5 px-3 xl:px-4 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-medium hover:bg-white/30 transition-all relative border border-white/30 text-sm xl:text-base"
             >
               <span className="absolute -top-1 -right-1 text-yellow-400 text-xs animate-pulse">👑</span>
-              <span>🤖</span>
+              <span className="text-base xl:text-lg">🤖</span>
               <span>{t('nav.ai_pro')}</span>
               <span>✨</span>
             </Link>
           </nav>
 
           {/* Language Selector & Profile */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             {/* Language Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center space-x-2 px-3 py-2 bg-white/60 backdrop-blur-md border border-gray-200 rounded-full hover:bg-white/70 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex items-center space-x-1.5 px-3 py-2.5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50"
               >
-                <span className="text-lg">{LANGUAGES[language].flag}</span>
-                <span className="hidden sm:block font-medium text-gray-700">{LANGUAGES[language].name}</span>
-                <span className="text-gray-400 text-sm">▼</span>
+                <span className="text-base">{LANGUAGES[language].flag}</span>
+                <span className="hidden sm:block font-medium text-white text-sm">{LANGUAGES[language].name}</span>
+                <span className="text-white/70 text-xs">▼</span>
               </button>
 
               {/* Dropdown Menu */}
@@ -104,9 +104,8 @@ const Header: React.FC<HeaderProps> = ({ onProfileClick }) => {
                         setLanguage(code as any);
                         setIsLanguageDropdownOpen(false);
                       }}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-blue-50/80 transition-colors duration-200 ${
-                        language === code ? 'bg-blue-100/80 text-blue-700' : 'text-gray-700'
-                      }`}
+                      className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-blue-50/80 transition-colors duration-200 ${language === code ? 'bg-blue-100/80 text-blue-700' : 'text-gray-700'
+                        }`}
                     >
                       <span className="text-lg">{lang.flag}</span>
                       <span className="font-medium">{lang.name}</span>
@@ -120,10 +119,10 @@ const Header: React.FC<HeaderProps> = ({ onProfileClick }) => {
             {/* Profile Button */}
             <button
               onClick={onProfileClick}
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:opacity-90 transition-opacity"
+              className="flex items-center space-x-1.5 px-3 xl:px-4 py-2.5 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/30 transition-all border border-white/30"
             >
-              <span>👤</span>
-              <span className="hidden sm:block font-medium">{t('nav.profile')}</span>
+              <span className="text-base">👤</span>
+              <span className="hidden sm:block font-medium text-sm">{t('nav.profile')}</span>
             </button>
           </div>
         </div>

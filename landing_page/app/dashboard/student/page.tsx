@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/student/Header';
 import Hero from '@/components/student/Hero';
+import AISkillGapAnalyser from '@/components/student/AISkillGapAnalyser';
 import ProfileSidebar from '@/components/student/ProfileSidebar';
 import OpportunityCard from '@/components/student/OpportunityCard';
 import MentorCard from '@/components/student/MentorCard';
@@ -177,7 +178,9 @@ const mockGames: Game[] = [
       <Header onProfileClick={() => setIsProfileOpen(true)} />
       <ProfileSidebar isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
       
-      <Hero />      {/* Enhanced Featured Updates Section */}
+      <Hero />
+      
+      {/* Enhanced Featured Updates Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Glass Section Background */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl"></div>
@@ -501,6 +504,9 @@ const mockGames: Game[] = [
           </div>
         </div>
       </section>
+
+      {/* AI Skill Gap Analyser Section */}
+      <AISkillGapAnalyser />
 
       {/* Enhanced Learning Resources Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

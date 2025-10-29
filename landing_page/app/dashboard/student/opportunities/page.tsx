@@ -309,7 +309,7 @@ const OpportunitiesPage: React.FC = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-gradient-primary rounded-3xl p-8 text-white text-center">
           <div className="text-4xl mb-4">🤖</div>
-          <h2 className="text-3xl font-bold mb-4">Get AI-Powered Recommendations</h2>
+          <h2 className="text-3xl font-bold mb-4">AI Powered Career Recommendation System</h2>
           <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
             Let our AI analyze your skills and preferences to find the perfect opportunities for you
           </p>
