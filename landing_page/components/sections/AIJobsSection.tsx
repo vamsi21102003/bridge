@@ -4,18 +4,14 @@ import { useState } from 'react'
 import { MapPin, Clock, DollarSign, Star, Briefcase, Users, Zap, Heart, X, ExternalLink, BookmarkPlus } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { useAuthModal } from '@/context/AuthModalContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function AIJobsSection() {
   const [activeFilter, setActiveFilter] = useState('All Opportunities')
   const [selectedJob, setSelectedJob] = useState<number | null>(null)
-
-  const filters = [
-    { name: 'All Opportunities', count: 7, color: 'bg-purple-500' },
-    { name: 'Internships', count: 4, color: 'bg-gray-500' },
-    { name: 'Full-time Jobs', count: 5, color: 'bg-blue-500' },
-    { name: 'Urgent', count: 4, color: 'bg-red-500' },
-    { name: 'Featured', count: 4, color: 'bg-yellow-500' }
-  ]
+  const { openModal } = useAuthModal()
+  const { t } = useLanguage()
 
   const jobs = [
     {
@@ -101,7 +97,74 @@ export function AIJobsSection() {
       featured: false,
       gradient: 'from-orange-500 to-red-500',
       applyBy: 'Apr 20, 2024'
+    },
+    {
+      id: 7,
+      title: 'Mobile App Developer',
+      company: 'Zomato Tech',
+      companyInitial: 'ZT',
+      location: 'Delhi, India',
+      type: 'Full-time',
+      salary: '₹12L/yr',
+      tags: ['React Native', 'Flutter', 'iOS', 'Android'],
+      urgent: false,
+      featured: false,
+      gradient: 'from-red-500 to-pink-500',
+      applyBy: 'May 15, 2024'
+    },
+    {
+      id: 8,
+      title: 'Content Writing Intern',
+      company: 'Byju\'s EdTech',
+      companyInitial: 'BE',
+      location: 'Bangalore, Karnataka',
+      type: 'Internship',
+      salary: '₹18k/mo',
+      tags: ['Content Writing', 'SEO', 'Research'],
+      urgent: false,
+      featured: false,
+      gradient: 'from-green-500 to-teal-500',
+      applyBy: 'Mar 25, 2024'
     }
+  ]
+
+  // Filter jobs based on active filter
+  const getFilteredJobs = () => {
+    switch (activeFilter) {
+      case 'Internships':
+        return jobs.filter(job => job.type === 'Internship')
+      case 'Full-time Jobs':
+        return jobs.filter(job => job.type === 'Full-time')
+      case 'Urgent':
+        return jobs.filter(job => job.urgent)
+      case 'Featured':
+        return jobs.filter(job => job.featured)
+      case 'All Opportunities':
+      default:
+        return jobs
+    }
+  }
+
+  // Calculate counts for each filter
+  const getFilterCounts = () => {
+    return {
+      'All Opportunities': jobs.length,
+      'Internships': jobs.filter(job => job.type === 'Internship').length,
+      'Full-time Jobs': jobs.filter(job => job.type === 'Full-time').length,
+      'Urgent': jobs.filter(job => job.urgent).length,
+      'Featured': jobs.filter(job => job.featured).length
+    }
+  }
+
+  const filterCounts = getFilterCounts()
+  const filteredJobs = getFilteredJobs()
+
+  const filters = [
+    { name: 'All Opportunities', label: t('jobs.filters.all'), count: filterCounts['All Opportunities'], color: 'bg-purple-500' },
+    { name: 'Internships', label: t('jobs.filters.internships'), count: filterCounts['Internships'], color: 'bg-gray-500' },
+    { name: 'Full-time Jobs', label: t('jobs.filters.fulltime'), count: filterCounts['Full-time Jobs'], color: 'bg-blue-500' },
+    { name: 'Urgent', label: t('jobs.filters.urgent'), count: filterCounts['Urgent'], color: 'bg-red-500' },
+    { name: 'Featured', label: t('jobs.filters.featured'), count: filterCounts['Featured'], color: 'bg-yellow-500' }
   ]
 
   const getJobDetails = (jobId: number) => {
@@ -138,15 +201,15 @@ export function AIJobsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            AI Recommended Jobs & Internships
+            {t('jobs.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Personalized opportunities matched to your profile through advanced AI analysis
+            {t('jobs.subtitle')}
           </p>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {filters.map((filter, index) => (
             <Button
               key={filter.name}
@@ -161,15 +224,34 @@ export function AIJobsSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`w-3 h-3 ${filter.color} rounded-full animate-pulse`} />
-              <span>{filter.name}</span>
+              <span>{filter.label}</span>
               <span className="bg-white/20 px-2 py-1 rounded-full text-xs hover:bg-white/30 transition-all duration-300">{filter.count}</span>
             </Button>
           ))}
         </div>
 
+        {/* Filter Results Indicator */}
+        <div className="text-center mb-8">
+          <p className="text-gray-600">
+            {t('jobs.showing')} <span className="font-semibold text-purple-600">{filteredJobs.length}</span> {filteredJobs.length === 1 ? t('jobs.opportunity') : t('jobs.opportunities')} 
+            {activeFilter !== 'All Opportunities' && (
+              <span> {t('jobs.for')} <span className="font-semibold text-purple-600">{filters.find(f => f.name === activeFilter)?.label}</span></span>
+            )}
+          </p>
+        </div>
+
         {/* Jobs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {jobs.map((job, index) => (
+        {filteredJobs.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Briefcase className="w-12 h-12 text-gray-400" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('jobs.noJobs')}</h3>
+            <p className="text-gray-600">{t('jobs.noJobsDesc')}</p>
+          </div>
+        ) : (
+          <div key={activeFilter} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+            {filteredJobs.map((job, index) => (
             <Card 
               key={job.id}
               className={`group hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:shadow-black/20 transition-all duration-500 cursor-pointer bg-gradient-to-br ${job.gradient} text-white border-0 relative overflow-hidden animate-slide-up hover-lift`}
@@ -220,7 +302,7 @@ export function AIJobsSection() {
                   </div>
                   <div className="flex items-center text-sm opacity-90">
                     <Clock className="w-4 h-4 mr-2" />
-                    Apply by {job.applyBy}
+                    {t('jobs.applyBy')} {job.applyBy}
                   </div>
                 </div>
 
@@ -243,10 +325,10 @@ export function AIJobsSection() {
                     size="sm"
                     onClick={(e) => {
                       e.stopPropagation()
-                      // Handle apply
+                      openModal()
                     }}
                   >
-                    APPLY NOW
+                    {t('jobs.applyNow')}
                   </Button>
                   <Button 
                     variant="ghost"
@@ -254,7 +336,7 @@ export function AIJobsSection() {
                     className="text-white hover:bg-white/20 hover:scale-110 hover:rotate-12 transform transition-all duration-300"
                     onClick={(e) => {
                       e.stopPropagation()
-                      // Handle bookmark
+                      openModal()
                     }}
                   >
                     <BookmarkPlus className="w-4 h-4" />
@@ -267,8 +349,9 @@ export function AIJobsSection() {
                 <div className="w-full h-full bg-white rounded-full transform translate-x-16 -translate-y-16" />
               </div>
             </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Job Details Modal */}
         {selectedJob !== null && (
@@ -369,14 +452,26 @@ export function AIJobsSection() {
                             <CardContent className="p-6">
                               <h4 className="font-semibold text-gray-900 mb-4">Quick Apply</h4>
                               <div className="space-y-4">
-                                <Button className="w-full" size="lg">
+                                <Button 
+                                  className="w-full" 
+                                  size="lg"
+                                  onClick={openModal}
+                                >
                                   Apply Now
                                 </Button>
-                                <Button variant="outline" className="w-full">
+                                <Button 
+                                  variant="outline" 
+                                  className="w-full"
+                                  onClick={openModal}
+                                >
                                   <BookmarkPlus className="w-4 h-4 mr-2" />
                                   Save Job
                                 </Button>
-                                <Button variant="ghost" className="w-full">
+                                <Button 
+                                  variant="ghost" 
+                                  className="w-full"
+                                  onClick={openModal}
+                                >
                                   <ExternalLink className="w-4 h-4 mr-2" />
                                   Share Job
                                 </Button>

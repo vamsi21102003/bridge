@@ -37,22 +37,24 @@ export const StudentAuthProvider: React.FC<{ children: ReactNode }> = ({ childre
       
       if (authToken && userType === 'student') {
         // Load user data from localStorage or set default
-        const savedUser = localStorage.getItem('studentUser');
-        if (savedUser) {
-          setUser(JSON.parse(savedUser));
-        } else {
-          // Set default user data
-          const defaultUser: StudentUser = {
-            id: '1',
-            name: 'Arjun Sharma',
-            email: 'arjun.sharma@student.edu',
-            level: 12,
-            xp: 2450,
-            skills: ['React', 'Python', 'UI/UX', 'Node.js', 'TypeScript'],
-            profileCompletion: 80,
-          };
-          setUser(defaultUser);
-          localStorage.setItem('studentUser', JSON.stringify(defaultUser));
+        if (typeof window !== 'undefined') {
+          const savedUser = localStorage.getItem('studentUser');
+          if (savedUser) {
+            setUser(JSON.parse(savedUser));
+          } else {
+            // Set default user data
+            const defaultUser: StudentUser = {
+              id: '1',
+              name: 'Arjun Sharma',
+              email: 'arjun.sharma@student.edu',
+              level: 12,
+              xp: 2450,
+              skills: ['React', 'Python', 'UI/UX', 'Node.js', 'TypeScript'],
+              profileCompletion: 80,
+            };
+            setUser(defaultUser);
+            localStorage.setItem('studentUser', JSON.stringify(defaultUser));
+          }
         }
       }
       setIsLoading(false);
@@ -84,7 +86,9 @@ export const StudentAuthProvider: React.FC<{ children: ReactNode }> = ({ childre
       };
       
       setUser(newUser);
-      localStorage.setItem('studentUser', JSON.stringify(newUser));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('studentUser', JSON.stringify(newUser));
+      }
       
     } catch (error) {
       console.error('Login error:', error);
@@ -101,7 +105,9 @@ export const StudentAuthProvider: React.FC<{ children: ReactNode }> = ({ childre
     
     // Clear user data
     setUser(null);
-    localStorage.removeItem('studentUser');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('studentUser');
+    }
     
     // Redirect to home
     router.push('/');
@@ -111,7 +117,9 @@ export const StudentAuthProvider: React.FC<{ children: ReactNode }> = ({ childre
     if (user) {
       const updatedUser = { ...user, ...userData };
       setUser(updatedUser);
-      localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+      }
     }
   };
 

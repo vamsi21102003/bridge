@@ -5,9 +5,13 @@ import Link from 'next/link'
 import { Plus, ArrowRight, Star, Lightbulb, BookOpen, TrendingUp, X, ExternalLink } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { useAuthModal } from '@/context/AuthModalContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function CareerPotentialSection() {
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null)
+  const { openModal } = useAuthModal()
+  const { t } = useLanguage()
 
   const features = [
     {
@@ -83,11 +87,10 @@ export function CareerPotentialSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Discover Your Career Potential
+            {t('career.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            AI-powered insights, structured career paths, and personalized 
-            recommendations to guide your professional journey
+            {t('career.subtitle')}
           </p>
         </div>
 
@@ -111,8 +114,16 @@ export function CareerPotentialSection() {
                   <p className="text-gray-600 leading-relaxed flex-grow mb-4">
                     {feature.description}
                   </p>
-                  <Button variant="outline" size="sm" className="mt-auto">
-                    Learn More
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="mt-auto"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      openModal()
+                    }}
+                  >
+                    {t('career.learnMore')}
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
@@ -184,16 +195,19 @@ export function CareerPotentialSection() {
                   </div>
 
                   <div className="flex space-x-4 pt-4">
-                    <Link href="/register">
-                      <Button className="flex-1">
-                        Get Started Free
-                      </Button>
-                    </Link>
-                    <Link href="/demo">
-                      <Button variant="outline" className="flex-1">
-                        Watch Demo
-                      </Button>
-                    </Link>
+                    <Button 
+                      className="flex-1"
+                      onClick={openModal}
+                    >
+                      {t('career.getStartedFree')}
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={openModal}
+                    >
+                      {t('career.watchDemo')}
+                    </Button>
                   </div>
                 </div>
               </CardContent>

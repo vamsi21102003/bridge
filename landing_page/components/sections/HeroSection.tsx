@@ -3,8 +3,13 @@
 import { Play, Plus, User, BarChart3 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
+import { useAuthModal } from '@/context/AuthModalContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function HeroSection() {
+  const { openModal } = useAuthModal()
+  const { t } = useLanguage()
+  
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Elements */}
@@ -19,26 +24,33 @@ export function HeroSection() {
           {/* Left Side - Content */}
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              BPUT Real-time
+              {t('hero.title.line1')}
               <br />
-              <span className="text-purple-600">Intelligent Digital</span>
+              <span className="text-purple-600">{t('hero.title.line2')}</span>
               <br />
-              <span className="text-blue-500">Guidance Engine</span>
+              <span className="text-blue-500">{t('hero.title.line3')}</span>
             </h1>
 
             <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-              Discover your perfect career path with AI-recommended jobs and internships tailored
-              to your unique profile. Get structured career guidance, skill analysis, and personalized
-              job matches through BriDGe Pro personalised features.
+              {t('hero.description')}
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-600 hover:from-purple-700 hover:via-purple-800 hover:to-indigo-700 animate-glow hover:animate-pulse transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50">
-                Get Started
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-600 hover:from-purple-700 hover:via-purple-800 hover:to-indigo-700 animate-glow hover:animate-pulse transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50"
+                onClick={openModal}
+              >
+                {t('hero.getStarted')}
               </Button>
-              <Button variant="outline" size="lg" className="flex items-center group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:border-indigo-300 transform hover:scale-105 transition-all duration-300">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="flex items-center group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:border-indigo-300 transform hover:scale-105 transition-all duration-300"
+                onClick={openModal}
+              >
                 <Play className="w-5 h-5 mr-2 group-hover:animate-pulse group-hover:text-indigo-600" />
-                Watch Demo
+                {t('hero.watchDemo')}
               </Button>
             </div>
           </div>

@@ -61,8 +61,12 @@ export const isAuthenticated = (): boolean => {
   }
   
   // Fallback to localStorage
-  const localToken = localStorage.getItem('authToken');
-  return localToken && localToken !== '' && localToken !== 'null';
+  if (typeof window !== 'undefined') {
+    const localToken = localStorage.getItem('authToken');
+    return localToken && localToken !== '' && localToken !== 'null';
+  }
+  
+  return false;
 };
 
 /**
@@ -81,5 +85,9 @@ export const getUserType = (): string | null => {
   }
   
   // Fallback to localStorage
-  return localStorage.getItem('userType');
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('userType');
+  }
+  
+  return null;
 };

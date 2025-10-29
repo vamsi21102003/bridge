@@ -7,9 +7,11 @@ import {
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { useAuthModal } from '@/context/AuthModalContext'
 
 export function ProFeaturesSection() {
   const [activeTab, setActiveTab] = useState('Pro Overview')
+  const { openModal } = useAuthModal()
 
   const tabs = [
     'Pro Overview',
@@ -351,8 +353,19 @@ export function ProFeaturesSection() {
                       </div>
 
                       <div className="flex space-x-2">
-                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Apply</Button>
-                        <Button variant="outline" className="flex-1">Save</Button>
+                        <Button 
+                          className="flex-1 bg-blue-600 hover:bg-blue-700"
+                          onClick={openModal}
+                        >
+                          Apply
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="flex-1"
+                          onClick={openModal}
+                        >
+                          Save
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -400,8 +413,19 @@ export function ProFeaturesSection() {
                       </div>
 
                       <div className="flex space-x-2">
-                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Apply</Button>
-                        <Button variant="outline" className="flex-1">Save</Button>
+                        <Button 
+                          className="flex-1 bg-blue-600 hover:bg-blue-700"
+                          onClick={openModal}
+                        >
+                          Apply
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="flex-1"
+                          onClick={openModal}
+                        >
+                          Save
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -477,8 +501,19 @@ export function ProFeaturesSection() {
                       </div>
 
                       <div className="flex space-x-2">
-                        <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Enroll</Button>
-                        <Button variant="outline" className="flex-1">Save</Button>
+                        <Button 
+                          className="flex-1 bg-blue-600 hover:bg-blue-700"
+                          onClick={openModal}
+                        >
+                          Enroll
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="flex-1"
+                          onClick={openModal}
+                        >
+                          Save
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -525,7 +560,10 @@ export function ProFeaturesSection() {
                         </div>
                       </div>
 
-                      <Button className="w-full bg-red-600 hover:bg-red-700">
+                      <Button 
+                        className="w-full bg-red-600 hover:bg-red-700"
+                        onClick={openModal}
+                      >
                         Watch Now
                       </Button>
                     </CardContent>

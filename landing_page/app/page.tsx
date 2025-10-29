@@ -11,9 +11,44 @@ import { FreemiumFeaturesSection } from '@/components/sections/FreemiumFeaturesS
 import { AIJobsSection } from '@/components/sections/AIJobsSection'
 import { ProFeaturesSection } from '@/components/sections/ProFeaturesSection'
 import { useSimpleAnimations } from '@/hooks/useSimpleAnimations'
+import { useScrollToBottom } from '@/hooks/useScrollToBottom'
+import { ScrollTriggeredModal } from '@/components/ui/ScrollTriggeredModal'
+import { AnimatePresence } from 'framer-motion'
+import { AuthModalProvider, useAuthModal } from '@/context/AuthModalContext'
+import { LanguageProvider } from '@/context/LanguageContext'
 
-export default function HomePage() {
+function HomePageContent() {
   useSimpleAnimations()
+  
+  // Auth modal context
+  const { isModalOpen, closeModal } = useAuthModal()
+  
+  // Scroll-triggered modal hook
+  const { isTriggered, resetTrigger } = useScrollToBottom({
+    threshold: 90, // Trigger when 90% scrolled
+    delay: 0, // No delay - show immediately
+    onlyOnce: true // Show only once per session
+  });
+
+  const handleModalClose = () => {
+    resetTrigger();
+    closeModal();
+  };
+
+  const handleSignIn = (data: any) => {
+    console.log('Sign in data:', data);
+    // Handle sign in logic here
+    resetTrigger();
+    closeModal();
+  };
+
+  const handleSocialLogin = (provider: string) => {
+    console.log('Social login with:', provider);
+    // Handle social login logic here
+    resetTrigger();
+    closeModal();
+  };
+
   return (
     <div className="min-h-screen animate-fade-in">
       <Header />
@@ -42,6 +77,27 @@ export default function HomePage() {
         </div>
       </main>
       <Footer />
+
+      {/* Auth modal - triggered by context or scroll */}
+      <AnimatePresence>
+        {(isTriggered || isModalOpen) && (
+          <ScrollTriggeredModal
+            onClose={handleModalClose}
+            onSubmit={handleSignIn}
+            onSocialLogin={handleSocialLogin}
+          />
+        )}
+      </AnimatePresence>
     </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <LanguageProvider>
+      <AuthModalProvider>
+        <HomePageContent />
+      </AuthModalProvider>
+    </LanguageProvider>
   )
 }
