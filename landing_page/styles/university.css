@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* University-specific styles - scoped to prevent conflicts with main landing page */
+.university-website {
+  /* Custom animations and transitions */
+}
+
+.university-website .animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.university-website .animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.university-website .animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.university-website .animate-bounce-subtle {
+  animation: bounceSubtle 2s infinite;
+}
+
+.university-website .animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+.university-website .chart-enter {
+  animation: chartEnter 1.2s ease-out;
+}
+
+.university-website .metric-counter {
+  animation: countUp 2s ease-out;
+}
+
+.university-website .hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.university-website .hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.university-website .hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.university-website .skeleton-pulse {
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* Page transitions */
+.university-website .page-enter {
+  animation: pageEnter 0.6s ease-out;
+}
+
+.university-website .page-exit {
+  animation: pageExit 0.4s ease-in;
+}
+
+/* Hero section animations */
+.university-website .hero-title {
+  animation: heroTitleEnter 1s ease-out;
+}
+
+.university-website .hero-subtitle {
+  animation: heroSubtitleEnter 1s ease-out 0.2s both;
+}
+
+.university-website .hero-cta {
+  animation: heroCTAEnter 1s ease-out 0.4s both;
+}
+
+/* Dashboard animations - Scoped to prevent conflicts */
+.university-website .bput-dashboard-layout .dashboard-grid,
+.university-website .dashboard-layout .dashboard-grid {
+  animation: dashboardGridEnter 0.8s ease-out;
+}
+
+.university-website .bput-dashboard-layout .metric-card,
+.university-website .dashboard-layout .metric-card {
+  animation: metricCardEnter 0.6s ease-out;
+}
+
+.university-website .bput-dashboard-layout .chart-container,
+.university-website .dashboard-layout .chart-container {
+  animation: chartContainerEnter 1s ease-out;
+}
+
+/* Form animations */
+.university-website .form-field {
+  transition: all 0.3s ease;
+}
+
+.university-website .form-field:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Interactive elements */
+.university-website .interactive-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.university-website .interactive-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animations */
+.university-website .skeleton-loader {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite;
+}
+
+/* Button micro-interactions */
+.university-website .button-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.university-website .button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.university-website .button-primary:hover::before {
+  left: 100%;
+}
+
+/* BPUT Dashboard Layout - Scoped to prevent conflicts */
+.university-website .bput-dashboard-layout {
+  /* Sidebar Layout Fix */
+}
+
+.university-website .bput-dashboard-layout .sidebar-container {
+  width: 256px;
+  min-width: 256px;
+  max-width: 256px;
+  overflow: hidden;
+  flex: 0 0 256px; /* Fixed width, no shrinking */
+}
+
+.university-website .bput-dashboard-layout .main-content-with-sidebar {
+  margin-left: 256px;
+  min-width: 0;
+  width: calc(100vw - 256px);
+  max-width: calc(100vw - 256px);
+  overflow-x: hidden;
+}
+
+/* Hide sidebar branding text - keep only logo icon */
+.university-website .bput-dashboard-layout .sidebar-branding-text {
+  display: none !important;
+}
+
+/* Sidebar header specific constraints */
+.university-website .bput-dashboard-layout .sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  max-width: 256px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  justify-content: center; /* Center the logo when text is hidden */
+}
+
+/* Ensure all sidebar content respects width */
+.university-website .bput-dashboard-layout .sidebar-container * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Top navbar positioning - starts after sidebar (only on dashboard pages) */
+.university-website .bput-dashboard-layout header {
+  margin-left: 256px;
+  width: calc(100vw - 256px);
+  max-width: calc(100vw - 256px);
+}
+
+/* Keyframe definitions */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroTitleEnter {
+  from { opacity: 0; transform: translateY(30px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heroSubtitleEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroCTAEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dashboardGridEnter {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes metricCardEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes chartContainerEnter {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes skeletonLoading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

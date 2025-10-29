@@ -41,8 +41,7 @@ export default function AuthPage() {
       } else if (data.userType === 'student') {
         router.push('/dashboard/student')
       } else if (data.userType === 'university') {
-        // For now, redirect to home (university dashboard can be added later)
-        router.push('/')
+        router.push('/university') // Redirect to full university website
       }
     } catch (error) {
       console.error('Authentication error:', error)
