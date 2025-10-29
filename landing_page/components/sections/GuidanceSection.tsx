@@ -2,8 +2,13 @@
 
 import { BookOpen, Users, Target, MessageCircle, CheckCircle, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { useAuthModal } from '@/context/AuthModalContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function GuidanceSection() {
+  const { openModal } = useAuthModal()
+  const { t } = useLanguage()
+  
   const guidanceServices = [
     {
       id: 1,
@@ -58,10 +63,10 @@ export function GuidanceSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Expert Career Guidance
+            {t('guidance.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get personalized support from industry professionals to accelerate your career growth and achieve your goals.
+            {t('guidance.subtitle')}
           </p>
         </div>
 
@@ -84,8 +89,13 @@ export function GuidanceSection() {
                     </div>
                   ))}
                 </div>
-                <Button variant="outline" size="sm" className="w-full">
-                  Learn More
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={openModal}
+                >
+                  {t('guidance.learnMore')}
                 </Button>
               </div>
             )
@@ -114,8 +124,12 @@ export function GuidanceSection() {
           <p className="text-lg mb-6 opacity-90">
             Book a free consultation with our career experts today
           </p>
-          <Button size="lg" className="bg-white text-indigo-600 hover:bg-gray-100">
-            Schedule Free Consultation
+          <Button 
+            size="lg" 
+            className="bg-white text-indigo-600 hover:bg-gray-100"
+            onClick={openModal}
+          >
+            {t('guidance.scheduleConsultation')}
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>

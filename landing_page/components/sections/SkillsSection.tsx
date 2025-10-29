@@ -2,8 +2,13 @@
 
 import { Code, Palette, BarChart, Lightbulb, Star, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { useAuthModal } from '@/context/AuthModalContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function SkillsSection() {
+  const { openModal } = useAuthModal()
+  const { t } = useLanguage()
+  
   const skillCategories = [
     {
       id: 1,
@@ -47,10 +52,10 @@ export function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Develop In-Demand Skills
+            {t('skills.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay ahead of the curve with skills that employers are actively seeking. Build your expertise with our curated learning paths.
+            {t('skills.subtitle')}
           </p>
         </div>
 
@@ -72,8 +77,13 @@ export function SkillsSection() {
                     </div>
                   ))}
                 </div>
-                <Button variant="outline" size="sm" className="w-full mt-4">
-                  Explore Skills
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full mt-4"
+                  onClick={openModal}
+                >
+                  {t('skills.exploreSkills')}
                 </Button>
               </div>
             )
@@ -102,8 +112,12 @@ export function SkillsSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-            Start Learning Today
+          <Button 
+            size="lg" 
+            className="px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+            onClick={openModal}
+          >
+            {t('skills.startLearning')}
           </Button>
         </div>
       </div>

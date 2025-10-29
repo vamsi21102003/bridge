@@ -5,35 +5,38 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { LanguageSelector } from '@/components/ui/LanguageSelector'
+import { useLanguage } from '@/context/LanguageContext'
 import { ROUTES } from '@/constants'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const router = useRouter()
+  const { t } = useLanguage()
 
   const navigation = [
     { 
-      name: 'Home', 
+      name: t('header.home'), 
       href: '#hero',
       isScroll: true
     },
     { 
-      name: 'Opportunities', 
+      name: t('header.opportunities'), 
       href: '#opportunities',
       isScroll: true
     },
     { 
-      name: 'Skills', 
+      name: t('header.skills'), 
       href: '#skills',
       isScroll: true
     },
     { 
-      name: 'Guidance', 
+      name: t('header.guidance'), 
       href: '#guidance',
       isScroll: true
     },
     { 
-      name: 'Dashboard', 
+      name: t('header.dashboard'), 
       href: '#dashboard',
       isScroll: true
     }
@@ -69,7 +72,7 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-white">BriDGe</span>
-              <span className="text-xs text-gray-300 -mt-1">Bridge the gap. Build the future</span>
+              <span className="text-xs text-gray-300 -mt-1">{t('header.tagline')}</span>
             </div>
           </Link>
 
@@ -96,15 +99,16 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Desktop Auth Buttons */}
+          {/* Desktop Auth Buttons & Language Selector */}
           <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
             <Link href="/auth?mode=login">
               <Button 
                 variant="ghost" 
                 size="sm"
                 className="text-white hover:text-blue-400 hover:bg-white/10 px-6 py-2 rounded-lg"
               >
-                Login
+                {t('header.login')}
               </Button>
             </Link>
             <Link href="/auth?mode=signup">
@@ -112,7 +116,7 @@ export function Header() {
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
               >
-                Sign Up
+                {t('header.signUp')}
               </Button>
             </Link>
           </div>
@@ -152,6 +156,9 @@ export function Header() {
               ))}
               
               <div className="flex flex-col space-y-2 pt-4 border-t border-white/20 mt-4">
+                <div className="px-4 py-2">
+                  <LanguageSelector />
+                </div>
                 <Link href="/auth?mode=login" className="w-full">
                   <Button 
                     variant="ghost" 
@@ -159,7 +166,7 @@ export function Header() {
                     className="w-full text-white hover:bg-white/10"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Login
+                    {t('header.login')}
                   </Button>
                 </Link>
                 <Link href="/auth?mode=signup" className="w-full">
@@ -168,7 +175,7 @@ export function Header() {
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Sign Up
+                    {t('header.signUp')}
                   </Button>
                 </Link>
               </div>
