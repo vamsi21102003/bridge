@@ -21,7 +21,7 @@ export const universityNavigation = [
 
 export const footerLinks = {
   university: [
-    { name: 'About BPUT', href: '/about' },
+    { name: 'About Uni-BriDGe', href: '/about' },
     { name: 'Leadership', href: '/about#leadership' },
     { name: 'Campus', href: '/about#campus' },
     { name: 'Research', href: '/about#research' },

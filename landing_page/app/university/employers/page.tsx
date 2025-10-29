@@ -148,21 +148,22 @@ export default function EmployersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="employers" />
       
       <div className="flex">
-        <Sidebar currentPage="employers" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Employer Management
-              </h1>
-              <p className="text-gray-600">
-                Manage industry partnerships and track hiring performance
+            {/* Enhanced Header */}
+            <div className="mb-8 slide-in-left">
+              <div className="relative">
+                <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                  🏢 Employer Management
+                </h1>
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              </div>
+              <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+                🤝 Manage industry partnerships and track hiring performance
               </p>
             </div>
 
@@ -285,6 +286,8 @@ export default function EmployersPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="employers" />
       </div>
     </div>
   );

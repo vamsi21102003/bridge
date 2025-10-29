@@ -55,7 +55,7 @@ export function CTASection() {
           </h2>
           
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of BPUT students and industry partners who are already 
+            Join thousands of university students and industry partners who are already 
             experiencing the power of AI-driven career success.
           </p>
 

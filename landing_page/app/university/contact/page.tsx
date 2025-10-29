@@ -9,7 +9,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Address',
-      details: ['Biju Patnaik University of Technology', 'Rourkela, Odisha 769004', 'India'],
+      details: ['Uni-BriDGe University Platform', 'Bhubaneswar, Odisha 751024', 'India'],
     },
     {
       icon: Phone,
@@ -19,7 +19,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@bput.ac.in', 'admissions@bput.ac.in', 'placements@bput.ac.in'],
+      details: ['info@unibridge.ac.in', 'admissions@unibridge.ac.in', 'placements@unibridge.ac.in'],
     },
     {
       icon: Clock,
@@ -29,12 +29,12 @@ export default function ContactPage() {
   ];
 
   const departments = [
-    { name: 'Admissions Office', email: 'admissions@bput.ac.in', phone: '+91 661 246 3001' },
-    { name: 'Placement Cell', email: 'placements@bput.ac.in', phone: '+91 661 246 3002' },
-    { name: 'Academic Office', email: 'academics@bput.ac.in', phone: '+91 661 246 3003' },
-    { name: 'Student Affairs', email: 'students@bput.ac.in', phone: '+91 661 246 3004' },
-    { name: 'International Relations', email: 'international@bput.ac.in', phone: '+91 661 246 3005' },
-    { name: 'Research & Development', email: 'research@bput.ac.in', phone: '+91 661 246 3006' },
+    { name: 'Admissions Office', email: 'admissions@unibridge.ac.in', phone: '+91 661 246 3001' },
+    { name: 'Placement Cell', email: 'placements@unibridge.ac.in', phone: '+91 661 246 3002' },
+    { name: 'Academic Office', email: 'academics@unibridge.ac.in', phone: '+91 661 246 3003' },
+    { name: 'Student Affairs', email: 'students@unibridge.ac.in', phone: '+91 661 246 3004' },
+    { name: 'International Relations', email: 'international@unibridge.ac.in', phone: '+91 661 246 3005' },
+    { name: 'Research & Development', email: 'research@unibridge.ac.in', phone: '+91 661 246 3006' },
   ];
 
   return (
@@ -188,7 +188,7 @@ export default function ContactPage() {
                   <div className="text-center">
                     <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
                     <p className="text-gray-600">Interactive Map</p>
-                    <p className="text-sm text-gray-500">BPUT Campus Location</p>
+                    <p className="text-sm text-gray-500">Uni-BriDGe Campus Location</p>
                   </div>
                 </div>
                 
@@ -199,7 +199,7 @@ export default function ContactPage() {
                       <strong>From Rourkela Railway Station:</strong> Take a taxi or bus (approximately 15 minutes)
                     </p>
                     <p>
-                      <strong>From Biju Patnaik Airport:</strong> Drive via NH-143 (approximately 45 minutes)
+                      <strong>From Biju Patnaik Airport:</strong> Drive via NH-16 (approximately 30 minutes)
                     </p>
                     <p>
                       <strong>Public Transport:</strong> Regular bus services available from city center

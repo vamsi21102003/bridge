@@ -11,7 +11,7 @@ export function TestimonialsSection() {
       id: 1,
       name: 'Priya Sharma',
       role: 'Software Engineer at TCS',
-      college: 'KIIT University',
+      college: 'Gandhi Engineering College (GEC)',
       image: '/api/placeholder/64/64',
       rating: 5,
       content: 'The AI-powered career matching helped me find the perfect role that aligned with my skills and interests. The platform\'s insights were incredibly accurate and saved me months of job searching.',
@@ -22,7 +22,7 @@ export function TestimonialsSection() {
       id: 2,
       name: 'Rajesh Kumar',
       role: 'Data Analyst at Infosys',
-      college: 'NIT Rourkela',
+      college: 'Gandhi Institute for Education & Technology (GIET)',
       image: '/api/placeholder/64/64',
       rating: 5,
       content: 'The skill gap analysis feature was a game-changer. It showed me exactly what skills I needed to develop, and the personalized learning path helped me land my dream job in data science.',
@@ -33,7 +33,7 @@ export function TestimonialsSection() {
       id: 3,
       name: 'Sneha Patel',
       role: 'Product Manager at Wipro',
-      college: 'IIIT Bhubaneswar',
+      college: 'Konark Institute of Science & Technology (KIST)',
       image: '/api/placeholder/64/64',
       rating: 5,
       content: 'The direct industry connections through this platform opened doors I never knew existed. The mentorship program and networking opportunities were invaluable for my career growth.',
@@ -44,7 +44,7 @@ export function TestimonialsSection() {
       id: 4,
       name: 'Amit Singh',
       role: 'DevOps Engineer at Accenture',
-      college: 'SOA University',
+      college: 'C. V. Raman College of Engineering',
       image: '/api/placeholder/64/64',
       rating: 5,
       content: 'From skill assessment to job placement, the entire journey was seamless. The platform\'s AI recommendations were spot-on, and I got multiple offers from top companies.',
@@ -69,7 +69,7 @@ export function TestimonialsSection() {
             Success Stories from Our Students
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from BPUT students who have transformed their careers through our 
+            Hear from university students who have transformed their careers through our 
             AI-powered platform and secured positions at leading companies.
           </p>
         </div>

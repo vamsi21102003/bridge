@@ -2,25 +2,37 @@
 
 import { Header } from '@/components/university-layout/Header';
 import { Footer } from '@/components/university-layout/Footer';
+import { Sidebar } from '@/components/university-layout/Sidebar';
 import { User, Mail, Phone, MapPin, Calendar, Edit } from 'lucide-react';
 
 export default function ProfilePage() {
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="profile" />
       
-      <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div className="flex">
+        <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8 main-content-with-sidebar-right">
         <div className="page-enter">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Profile</h1>
-            <p className="text-gray-600">Manage your account information and preferences</p>
+          {/* Enhanced Header */}
+          <div className="mb-8 slide-in-left">
+            <div className="relative">
+              <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                👤 Profile
+              </h1>
+              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-r from-violet-400 to-fuchsia-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+            </div>
+            <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+              ⚙️ Manage your account information and preferences
+            </p>
           </div>
 
-          {/* Profile Card */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-            {/* Cover Photo */}
-            <div className="h-32 bg-gradient-to-r from-primary-600 to-primary-700"></div>
+          {/* Enhanced Profile Card */}
+          <div className="enhanced-card hover-tilt slide-in-bottom stagger-3 overflow-hidden">
+            {/* Enhanced Cover Photo */}
+            <div className="h-32 bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
+              <div className="absolute top-4 right-4 text-white/30 text-6xl">👤</div>
+            </div>
             
             {/* Profile Info */}
             <div className="px-6 py-6">
@@ -31,7 +43,7 @@ export default function ProfilePage() {
                   </div>
                   <div className="ml-6 mt-4">
                     <h2 className="text-2xl font-bold text-gray-900">University Admin</h2>
-                    <p className="text-gray-600">BPUT University Portal Administrator</p>
+                    <p className="text-gray-600">Uni-BriDGe Portal Administrator</p>
                   </div>
                 </div>
                 <button className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200">
@@ -49,7 +61,7 @@ export default function ProfilePage() {
                     <Mail className="w-5 h-5 text-gray-400" />
                     <div>
                       <p className="text-sm text-gray-600">Email</p>
-                      <p className="font-medium text-gray-900">admin@bput.ac.in</p>
+                      <p className="font-medium text-gray-900">admin@unibridge.ac.in</p>
                     </div>
                   </div>
                   
@@ -128,6 +140,8 @@ export default function ProfilePage() {
             </div>
           </div>
         </div>
+        
+        <Sidebar currentPage="profile" />
       </div>
       
       <Footer />

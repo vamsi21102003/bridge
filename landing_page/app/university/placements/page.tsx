@@ -40,7 +40,7 @@ export default function PlacementsPage() {
       department: 'CSE',
       year: '2024',
       image: 'P',
-      story: 'From a small town in Odisha to Google - BPUT\'s comprehensive curriculum and placement support made my dream come true.',
+      story: 'From a small town in Odisha to Google - Uni-BriDGe\'s comprehensive curriculum and placement support made my dream come true.',
     },
     {
       name: 'Rajesh Kumar',
@@ -49,7 +49,7 @@ export default function PlacementsPage() {
       department: 'ECE',
       year: '2024',
       image: 'R',
-      story: 'The industry exposure and technical skills I gained at BPUT helped me secure a position at Microsoft as a Software Engineer.',
+      story: 'The industry exposure and technical skills I gained through Uni-BriDGe helped me secure a position at Microsoft as a Software Engineer.',
     },
     {
       name: 'Sneha Patel',
@@ -58,7 +58,7 @@ export default function PlacementsPage() {
       department: 'IT',
       year: '2024',
       image: 'S',
-      story: 'BPUT\'s focus on practical learning and industry connections opened doors to opportunities I never imagined possible.',
+      story: 'Uni-BriDGe\'s focus on practical learning and industry connections opened doors to opportunities I never imagined possible.',
     },
   ];
 
@@ -118,7 +118,7 @@ export default function PlacementsPage() {
                 Top Recruiters
               </h2>
               <p className="text-xl text-gray-600">
-                Leading companies that regularly recruit from BPUT
+                Leading companies that regularly recruit through Uni-BriDGe
               </p>
             </div>
 
@@ -284,7 +284,7 @@ export default function PlacementsPage() {
               Ready to Join Our Success Story?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Be part of BPUT's exceptional placement record and launch your career with top companies
+              Be part of Uni-BriDGe's exceptional placement record and launch your career with top companies
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-yellow-400 hover:bg-yellow-500 text-primary-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105 shadow-lg">

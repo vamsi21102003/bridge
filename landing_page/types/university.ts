@@ -33,7 +33,7 @@ export interface CollegeMetrics {
   collegeName: string;
   affiliationId: string;
   overallEmployabilityScore: number;
-  bputAverageComparison: number;
+  universityAverageComparison: number;
   departmentWiseData: DepartmentData[];
   placementRatio: PlacementRatio;
   topHiringCompanies: Company[];

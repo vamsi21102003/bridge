@@ -47,7 +47,7 @@ export default function AdminPage() {
       id: 1,
       type: 'user_login',
       description: 'Admin user logged in from new device',
-      user: 'admin@bput.ac.in',
+      user: 'admin@unibridge.ac.in',
       timestamp: '2024-10-29 14:30:00',
       severity: 'info',
     },
@@ -63,7 +63,7 @@ export default function AdminPage() {
       id: 3,
       type: 'security_alert',
       description: 'Multiple failed login attempts detected',
-      user: 'security@bput.ac.in',
+      user: 'security@unibridge.ac.in',
       timestamp: '2024-10-29 10:15:00',
       severity: 'warning',
     },
@@ -79,7 +79,7 @@ export default function AdminPage() {
       id: 5,
       type: 'user_registration',
       description: 'New college administrator registered',
-      user: 'kiit@bput.ac.in',
+      user: 'gec@unibridge.ac.in',
       timestamp: '2024-10-28 16:20:00',
       severity: 'info',
     },
@@ -145,21 +145,22 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="admin" />
       
       <div className="flex">
-        <Sidebar currentPage="admin" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                System Administration
-              </h1>
-              <p className="text-gray-600">
-                Monitor system health, manage users, and configure platform settings
+            {/* Enhanced Header */}
+            <div className="mb-8 slide-in-left">
+              <div className="relative">
+                <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                  ⚙️ System Administration
+                </h1>
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-r from-red-400 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              </div>
+              <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+                🔧 Monitor system health, manage users, and configure platform settings
               </p>
             </div>
 
@@ -263,6 +264,8 @@ export default function AdminPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="admin" />
       </div>
     </div>
   );

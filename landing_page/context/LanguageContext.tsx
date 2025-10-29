@@ -78,7 +78,7 @@ function getTranslations() {
       },
       hero: {
         title: {
-          line1: 'BPUT Real-time',
+          line1: 'Uni-BriDGe Real-time',
           line2: 'Intelligent Digital',
           line3: 'Guidance Engine'
         },
@@ -144,7 +144,7 @@ function getTranslations() {
       },
       hero: {
         title: {
-          line1: 'BPUT रियल-टाइम',
+          line1: 'Uni-BriDGe रियल-टाइम',
           line2: 'इंटेलिजेंट डिजिटल',
           line3: 'गाइडेंस इंजन'
         },
@@ -210,7 +210,7 @@ function getTranslations() {
       },
       hero: {
         title: {
-          line1: 'BPUT ରିଅଲ୍-ଟାଇମ୍',
+          line1: 'Uni-BriDGe ରିଅଲ୍-ଟାଇମ୍',
           line2: 'ଇଣ୍ଟେଲିଜେଣ୍ଟ ଡିଜିଟାଲ୍',
           line3: 'ଗାଇଡେନ୍ସ ଇଞ୍ଜିନ୍'
         },

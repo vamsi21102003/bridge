@@ -66,18 +66,18 @@ export function Header({ userRole = 'guest', currentPage }: HeaderProps) {
   }));
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-100">
+    <header className="bg-gradient-to-r from-white via-blue-50/30 to-purple-50/30 shadow-xl sticky top-0 z-50 border-b border-gradient-to-r from-blue-200 to-purple-200 backdrop-blur-sm university-website">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo - Only show on non-dashboard pages */}
           <div className="flex items-center flex-shrink-0">
             <Link href="/university" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">B</span>
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg glow-effect hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-xl">🎓</span>
               </div>
               <div className="flex flex-col">
-                <h1 className="text-2xl font-bold text-gray-900 leading-tight">BPUT</h1>
-                <p className="text-sm text-gray-600 leading-tight">University Portal</p>
+                <h1 className="text-2xl font-bold gradient-text leading-tight hover:scale-105 transition-transform duration-300">Uni-BriDGe</h1>
+                <p className="text-sm text-gray-600 leading-tight font-medium">✨ University Portal</p>
               </div>
             </Link>
           </div>
@@ -89,8 +89,8 @@ export function Header({ userRole = 'guest', currentPage }: HeaderProps) {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-gray-700 hover:text-primary-600 px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-primary-50 whitespace-nowrap',
-                  currentPage === item.href.slice(11) && 'text-primary-600 bg-primary-100 shadow-sm'
+                  'text-gray-700 hover:text-blue-600 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 whitespace-nowrap hover:scale-105 interactive-hover',
+                  currentPage === item.href.slice(11) && 'text-blue-600 bg-gradient-to-r from-blue-100 to-purple-100 shadow-md glow-effect'
                 )}
               >
                 {item.name}

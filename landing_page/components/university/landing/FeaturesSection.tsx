@@ -98,7 +98,7 @@ export function FeaturesSection() {
               Ready to Transform Your Career Journey?
             </h3>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of BPUT students who have already found their dream careers 
+              Join thousands of university students who have already found their dream careers 
               through our AI-powered platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
