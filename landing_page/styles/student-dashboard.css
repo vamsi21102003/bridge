@@ -1,0 +1,254 @@
+/* Bridge Career Platform - Integration Safe Styles */
+/* Use these classes when integrating with other systems to avoid conflicts */
+
+/* Namespaced utility classes for safe integration */
+.bridge-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .bridge-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bridge-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.bridge-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.bridge-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.bridge-button-primary {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.bridge-button-primary:hover {
+  opacity: 0.9;
+}
+
+.bridge-button-secondary {
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: #374151;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.bridge-button-secondary:hover {
+  background-color: #f9fafb;
+}
+
+.bridge-input {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.bridge-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #667eea;
+  border-color: transparent;
+}
+
+.bridge-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.bridge-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #374151;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.bridge-nav-link:hover {
+  color: #5a67d8;
+}
+
+/* Bridge color utilities */
+.bridge-text-primary { color: #5a67d8; }
+.bridge-text-secondary { color: #ff6b6b; }
+.bridge-bg-primary { background-color: #667eea; }
+.bridge-bg-secondary { background-color: #ff6b6b; }
+.bridge-border-primary { border-color: #667eea; }
+
+/* Gradient utilities for student dashboard */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(45deg, #48bb78, #38a169);
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(45deg, #ed8936, #dd6b20);
+}
+
+.bg-gradient-info {
+  background: linear-gradient(45deg, #4299e1, #3182ce);
+}
+
+/* Bridge effects */
+.bridge-shadow-glow {
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.bridge-backdrop-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Safe animations for integration */
+@keyframes bridgeFloatSafe {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bridgeShimmerSafe {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes floatDelayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.bridge-float-safe {
+  animation: bridgeFloatSafe 3s ease-in-out infinite;
+}
+
+.bridge-shimmer-safe {
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: bridgeShimmerSafe 2s linear infinite;
+}
+
+/* Animation utilities for student dashboard */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-bounce-gentle {
+  animation: bounceGentle 2s ease-in-out infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .bridge-mobile-hidden { display: none; }
+  .bridge-mobile-full { width: 100%; }
+}
+
+@media (min-width: 768px) {
+  .bridge-desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Glass morphism effect for integration */
+.bridge-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+/* Gradient backgrounds for integration */
+.bridge-gradient-bg-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bridge-gradient-bg-secondary {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+}
+
+.bridge-gradient-bg-success {
+  background: linear-gradient(45deg, #48bb78, #38a169);
+}

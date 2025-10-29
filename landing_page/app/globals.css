@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Only apply smooth scrolling - safe for integration */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* INTEGRATION-SAFE: Container-based approach only */
+  .bridge-landing-page {
+    background: linear-gradient(135deg, #9EECFF 0%, #dbeafe 50%, #e9d5ff 100%);
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate; /* Create new stacking context */
+  }
+}
+
+@layer components {
+  /* Prefixed classes to avoid conflicts with other projects */
+  .bridge-glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .bridge-glass-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(31, 38, 135, 0.5);
+  }
+  
+  .bridge-glass-button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+  }
+  
+  .bridge-glass-button:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px 0 rgba(31, 38, 135, 0.4);
+  }
+  
+  .bridge-gradient-text {
+    background: linear-gradient(90deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .bridge-animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .bridge-animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .bridge-animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+  
+  .bridge-hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .bridge-hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  /* Ensure animations persist across navigation */
+  .page-wrapper {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Force animation classes to be persistent */
+  .animate-persistent {
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
+  
+  /* Enhanced button animations that persist */
+  .btn-enhanced {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+  
+  .btn-enhanced:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-enhanced:active {
+    transform: translateY(0) scale(0.98);
+  }
+  
+
+  
+  /* Ensure critical styles are always applied */
+  .bridge-glass-card {
+    will-change: transform, box-shadow;
+  }
+  
+  .btn-enhanced {
+    will-change: transform, box-shadow;
+  }
+  
+  .bridge-gradient-text {
+    will-change: background-position;
+  }
+}
+
+/* Add missing keyframes */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Ensure animation utility classes are available */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Additional keyframes for the utility classes */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(67, 97, 238, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(67, 97, 238, 0.8), 0 0 30px rgba(67, 97, 238, 0.6); }
+}
+
+/* Dashboard-specific styles with scoping */
+.bridge-dashboard-page {
+  /* Dashboard component styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .shadow-purple {
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1), 0 4px 6px -2px rgba(139, 92, 246, 0.05);
+  }
+}
