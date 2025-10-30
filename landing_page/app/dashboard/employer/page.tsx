@@ -29,10 +29,17 @@ import {
   Star,
   Rocket,
   Shield,
-  Heart
+  Heart,
+  MessageSquare,
+  ArrowRight,
+  MapPin,
+  Landmark,
+  Compass
 } from 'lucide-react';
 import EMPBriDGeLogo from '@/components/ui/EMPBriDGeLogo';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
+import FloatingFeedbackWidget from '@/components/feedback/FloatingFeedbackWidget';
+import TestimonialCarousel from '@/components/feedback/TestimonialCarousel';
 
 export default function EmployerDashboardPage() {
   const { t } = useTranslation();
@@ -321,7 +328,7 @@ export default function EmployerDashboardPage() {
                 </div>
                 <h3 className="font-bold text-gray-900">Quick Access</h3>
                 <div className="flex-1"></div>
-                <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">4 Tools</span>
+                <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">5 Tools</span>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
@@ -345,6 +352,17 @@ export default function EmployerDashboardPage() {
                   </div>
                   <span className="text-sm font-medium text-gray-700 group-hover:text-green-700 transition-colors">Applicants</span>
                   <span className="text-xs text-gray-400 mt-1">Manage candidates</span>
+                </Link>
+                
+                <Link
+                  href={ROUTES.FEEDBACK}
+                  className="flex flex-col items-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-orange-50 hover:to-orange-100 transition-all duration-300 group transform hover:-translate-y-1"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <MessageSquare className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-orange-700 transition-colors">Feedback</span>
+                  <span className="text-xs text-gray-400 mt-1">Success stories</span>
                 </Link>
                 
                 <button 
@@ -670,15 +688,15 @@ export default function EmployerDashboardPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                      <Building2 className="w-6 h-6 text-white" />
+                      <Landmark className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold">TechCorp Inc.</h4>
+                      <h4 className="font-bold">TechVision India</h4>
                       <p className="text-purple-200 text-sm">Software Company</p>
                     </div>
                   </div>
                   <p className="text-purple-100 text-sm mb-3">
-                    "Reduced hiring time by 60% and found exceptional talent through EMPBriDGe's AI matching."
+                    "Reduced hiring time by 60% and found exceptional talent through EMPBriDGe's AI matching. Perfect for the Indian tech ecosystem."
                   </p>
                   <div className="flex items-center space-x-2">
                     <div className="flex text-yellow-400">
@@ -696,12 +714,12 @@ export default function EmployerDashboardPage() {
                       <Heart className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold">HealthPlus</h4>
+                      <h4 className="font-bold">MediCare Solutions</h4>
                       <p className="text-purple-200 text-sm">Healthcare</p>
                     </div>
                   </div>
                   <p className="text-purple-100 text-sm mb-3">
-                    "The platform's analytics helped us optimize our recruitment strategy and improve candidate quality."
+                    "The platform's analytics helped us optimize our recruitment strategy and connect with top Indian healthcare professionals."
                   </p>
                   <div className="flex items-center space-x-2">
                     <div className="flex text-yellow-400">
@@ -716,15 +734,15 @@ export default function EmployerDashboardPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                      <Rocket className="w-6 h-6 text-white" />
+                      <Compass className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold">StartupX</h4>
+                      <h4 className="font-bold">FinTech Innovations</h4>
                       <p className="text-purple-200 text-sm">Fintech Startup</p>
                     </div>
                   </div>
                   <p className="text-purple-100 text-sm mb-3">
-                    "As a growing startup, EMPBriDGe gave us access to top-tier talent we couldn't reach before."
+                    "As a growing fintech startup in India, EMPBriDGe gave us access to top-tier talent across all major cities."
                   </p>
                   <div className="flex items-center space-x-2">
                     <div className="flex text-yellow-400">
@@ -738,6 +756,141 @@ export default function EmployerDashboardPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Candidate Feedback Showcase */}
+        <div className={`mt-16 transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-gradient-to-br from-orange-50 via-white to-orange-50 rounded-3xl p-8 border border-orange-100 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-200/30 to-yellow-200/30 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-orange-100/30 to-orange-200/30 rounded-full translate-y-12 -translate-x-12"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <MessageSquare className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Candidate Feedback Hub</h3>
+                    <p className="text-gray-600">Real testimonials from successful job placements</p>
+                    <div className="flex items-center space-x-4 mt-2">
+                      <div className="flex items-center space-x-1">
+                        <div className="flex text-yellow-400">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-current" />
+                          ))}
+                        </div>
+                        <span className="text-sm font-medium text-gray-700 ml-2">4.8 average rating</span>
+                      </div>
+                      <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                      <span className="text-sm text-gray-600">150+ reviews</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <Link
+                  href={ROUTES.FEEDBACK}
+                  className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                >
+                  <span className="font-medium">View All Feedback</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-orange-100">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+                      alt="Priya Sharma"
+                      className="w-12 h-12 rounded-xl object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900">Priya Sharma</h4>
+                      <p className="text-orange-600 text-sm font-medium">Software Engineer</p>
+                    </div>
+                    <div className="ml-auto flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    "Amazing experience! The interview process was smooth and professional. I'm thriving in my new role at TechVision India."
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>TechVision India</span>
+                    <span>Oct 2024</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-orange-100">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                      alt="Arjun Patel"
+                      className="w-12 h-12 rounded-xl object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900">Arjun Patel</h4>
+                      <p className="text-orange-600 text-sm font-medium">Product Manager</p>
+                    </div>
+                    <div className="ml-auto flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    "Outstanding company culture and leadership. The work-life balance and growth opportunities are perfect for Indian professionals."
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>InnovateHub Solutions</span>
+                    <span>Oct 2024</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-orange-100">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                      alt="Kavya Reddy"
+                      className="w-12 h-12 rounded-xl object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900">Kavya Reddy</h4>
+                      <p className="text-orange-600 text-sm font-medium">UX Designer</p>
+                    </div>
+                    <div className="ml-auto flex text-yellow-400">
+                      {[...Array(4)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                      <Star className="w-3 h-3 text-gray-300" />
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    "Really positive experience overall. The creative freedom and collaborative environment are perfect for designers in India."
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500">
+                    <span>DesignCraft Studios</span>
+                    <span>Oct 2024</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-orange-100 rounded-full">
+                  <Sparkles className="w-4 h-4 text-orange-600" />
+                  <span className="text-sm font-medium text-orange-700">Join 500+ successful placements this month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive Testimonial Carousel */}
+        <div className={`mt-16 transition-all duration-1000 delay-1100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <TestimonialCarousel autoPlay={true} interval={6000} />
         </div>
       </div>
 
@@ -832,6 +985,13 @@ export default function EmployerDashboardPage() {
           </div>
         </div>
       )}
+
+      {/* Floating Feedback Widget */}
+      <FloatingFeedbackWidget 
+        onSubmit={(feedback) => {
+          showToast('Thank you for your feedback! It helps us improve our platform.', 'success');
+        }}
+      />
 
       {/* Upgrade Modal */}
       {showUpgradeModal && (
