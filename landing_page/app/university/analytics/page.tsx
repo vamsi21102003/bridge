@@ -63,21 +63,22 @@ export default function AnalyticsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="analytics" />
       
       <div className="flex">
-        <Sidebar currentPage="analytics" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Skill Gap Analysis
-              </h1>
-              <p className="text-gray-600">
-                Comprehensive analysis of skill gaps and industry demands
+            {/* Enhanced Header */}
+            <div className="mb-8 slide-in-left">
+              <div className="relative">
+                <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                  📊 Skill Gap Analysis
+                </h1>
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-r from-indigo-400 to-cyan-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              </div>
+              <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+                🔍 Comprehensive analysis of skill gaps and industry demands
               </p>
             </div>
 
@@ -188,6 +189,8 @@ export default function AnalyticsPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="analytics" />
       </div>
     </div>
   );

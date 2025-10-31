@@ -6,9 +6,9 @@ import { QueryProvider } from '@/components/providers/QueryProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BPUT - Biju Patnaik University of Technology',
-  description: 'AI-Powered Career Recommendation and Internship Matching Platform for BPUT students and employers',
-  keywords: 'BPUT, university, career, internship, placement, AI, technology, education',
+  title: 'Uni-BriDGe - University Bridge Platform',
+  description: 'AI-Powered Career Recommendation and Internship Matching Platform for university students and employers',
+  keywords: 'Uni-BriDGe, university, career, internship, placement, AI, technology, education',
 }
 
 export default function UniversityLayout({

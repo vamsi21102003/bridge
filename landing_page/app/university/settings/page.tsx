@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Header } from '@/components/university-layout/Header';
 import { Footer } from '@/components/university-layout/Footer';
+import { Sidebar } from '@/components/university-layout/Sidebar';
 import { 
   Bell, 
   Shield, 
@@ -37,20 +38,28 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="settings" />
       
-      <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div className="flex">
+        <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8 main-content-with-sidebar-right">
         <div className="page-enter">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Settings</h1>
-            <p className="text-gray-600">Manage your account preferences and security settings</p>
+          {/* Enhanced Header */}
+          <div className="mb-8 slide-in-left">
+            <div className="relative">
+              <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                ⚙️ Settings
+              </h1>
+              <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-r from-slate-400 to-zinc-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+            </div>
+            <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+              🔧 Manage your account preferences and security settings
+            </p>
           </div>
 
           <div className="space-y-6">
-            {/* Account Settings */}
-            <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            {/* Enhanced Account Settings */}
+            <div className="enhanced-card hover-tilt slide-in-bottom stagger-3 p-6">
               <div className="flex items-center space-x-3 mb-6">
                 <User className="w-6 h-6 text-primary-600" />
                 <h2 className="text-xl font-semibold text-gray-900">Account Settings</h2>
@@ -70,7 +79,7 @@ export default function SettingsPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                   <input
                     type="email"
-                    defaultValue="admin@bput.ac.in"
+                    defaultValue="admin@unibridge.ac.in"
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                   />
                 </div>
@@ -233,6 +242,8 @@ export default function SettingsPage() {
             </div>
           </div>
         </div>
+        
+        <Sidebar currentPage="settings" />
       </div>
       
       <Footer />

@@ -15,6 +15,7 @@ export interface Job {
   type?: string;
   status: 'active' | 'closed' | 'draft';
   applications?: number;
+  applicants?: number;
   posted?: string;
   role?: string;
   salary?: string;

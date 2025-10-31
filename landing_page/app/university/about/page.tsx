@@ -17,7 +17,7 @@ export default function AboutPage() {
       name: 'Dr. Rajesh Kumar',
       position: 'Vice Chancellor',
       image: '/api/placeholder/150/150',
-      bio: 'Leading BPUT with over 25 years of experience in technical education and research.',
+      bio: 'Leading Uni-BriDGe with over 25 years of experience in technical education and research.',
     },
     {
       name: 'Prof. Sunita Patel',
@@ -43,11 +43,11 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About BPUT
+                About Uni-BriDGe
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-                Biju Patnaik University of Technology - Pioneering technical education 
-                and innovation in Odisha since 1997
+                Uni-BriDGe - Bridging the gap between university education 
+                and industry opportunities through AI-powered solutions
               </p>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto">
               <div className="space-y-8">
                 {[
-                  { year: '1997', event: 'BPUT established as a unitary university' },
+                  { year: '2024', event: 'Uni-BriDGe platform launched to bridge university-industry gap' },
                   { year: '2002', event: 'First batch of engineering graduates' },
                   { year: '2010', event: 'Achieved autonomous status' },
                   { year: '2015', event: 'Launched AI-powered career platform' },

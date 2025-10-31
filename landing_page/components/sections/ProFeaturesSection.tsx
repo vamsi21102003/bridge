@@ -182,7 +182,7 @@ export function ProFeaturesSection() {
     },
     {
       title: 'Cloud Ecosystem & API Integrations',
-      description: 'Seamless integration with Skill Odisha, Digital Odisha, and BPUT SIS platforms. Federated learning with anonymized multi-college data for enhanced AI models.',
+      description: 'Seamless integration with Skill Odisha, Digital Odisha, and university SIS platforms. Federated learning with anonymized multi-college data for enhanced AI models.',
       icon: Globe
     }
   ]

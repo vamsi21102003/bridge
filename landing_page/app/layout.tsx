@@ -14,8 +14,8 @@ import { StudentAuthProvider } from '@/context/student/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BriDGe - Career Platform',
-  description: 'Bridging the gap between talent and opportunity with AI-powered career matching',
+  title: 'Uni-BriDGe - Career Platform',
+  description: 'Bridging the gap between university talent and industry opportunity with AI-powered career matching',
   keywords: 'jobs, career, AI matching, opportunities, recruitment',
 }
 

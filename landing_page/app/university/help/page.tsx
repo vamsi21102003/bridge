@@ -75,7 +75,7 @@ export default function HelpPage() {
     {
       title: 'Email Support',
       description: 'Get help via email within 24 hours',
-      contact: 'support@bput.ac.in',
+      contact: 'support@unibridge.ac.in',
       icon: Mail,
       action: 'Send Email'
     },
@@ -105,7 +105,7 @@ export default function HelpPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Help Center</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Find answers to common questions and get support for the BPUT University Portal
+              Find answers to common questions and get support for the Uni-BriDGe Portal
             </p>
           </div>
 

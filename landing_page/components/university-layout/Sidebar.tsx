@@ -99,20 +99,24 @@ export function Sidebar({ currentPage }: SidebarProps) {
   ];
 
   return (
-    <div className="fixed inset-y-0 left-0 z-50 sidebar-container bg-white shadow-lg border-r border-gray-200">
-      <div className="flex flex-col h-full w-full">
-        {/* Logo */}
-        <div className="sidebar-header flex items-center px-4 py-4 border-b border-gray-200 w-full overflow-hidden">
-          <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-            <span className="text-white font-bold text-sm">B</span>
+    <div className="fixed inset-y-0 right-0 z-50 sidebar-container bg-gradient-to-b from-white via-blue-50/30 to-purple-50/30 shadow-2xl border-l border-gradient-to-b from-blue-200 to-purple-200 university-website">
+      <div className="flex flex-col h-full w-full backdrop-blur-sm">
+        {/* Enhanced Logo */}
+        <div className="sidebar-header flex items-center px-4 py-4 border-b border-gradient-to-r from-blue-200 to-purple-200 w-full overflow-hidden slide-in-right">
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 flex-shrink-0 glow-effect hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <span className="text-white font-bold text-lg">🎓</span>
           </div>
           <div className="min-w-0 flex-1 overflow-hidden sidebar-branding-text">
-            <h2 className="text-lg font-bold text-gray-900 truncate whitespace-nowrap">BPUT</h2>
-            <p className="text-xs text-gray-500 truncate whitespace-nowrap">University Portal</p>
+            <h2 className="text-lg font-bold gradient-text truncate whitespace-nowrap hover:scale-105 transition-transform duration-300 cursor-pointer">
+              Uni-BriDGe
+            </h2>
+            <p className="text-xs text-gray-600 truncate whitespace-nowrap font-medium">
+              ✨ University Portal
+            </p>
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* Enhanced Navigation */}
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           {navigation.map((item) => (
             <div key={item.name}>
@@ -121,20 +125,20 @@ export function Sidebar({ currentPage }: SidebarProps) {
                   <button
                     onClick={() => toggleSection(item.name.toLowerCase())}
                     className={cn(
-                      'w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                      'w-full flex items-center justify-between px-3 py-3 text-sm font-medium rounded-xl transition-all duration-300 group hover:scale-105 interactive-hover',
                       item.current
-                        ? 'bg-primary-50 text-primary-700'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg glow-effect'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:shadow-md'
                     )}
                   >
                     <div className="flex items-center min-w-0 flex-1">
-                      <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                      <span className="truncate">{item.name}</span>
+                      <item.icon className="w-5 h-5 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="truncate font-medium">{item.name}</span>
                     </div>
                     {expandedSections.includes(item.name.toLowerCase()) ? (
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
                     ) : (
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
                     )}
                   </button>
                   
@@ -145,10 +149,10 @@ export function Sidebar({ currentPage }: SidebarProps) {
                           key={child.name}
                           href={child.href}
                           className={cn(
-                            'block px-3 py-2 text-sm rounded-lg transition-colors duration-200 truncate',
+                            'block px-3 py-2 text-sm rounded-lg transition-all duration-300 truncate hover:scale-105 interactive-hover group',
                             child.current
-                              ? 'bg-primary-100 text-primary-700 font-medium'
-                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                              ? 'bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 font-medium shadow-md'
+                              : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50'
                           )}
                         >
                           {child.name}
@@ -161,29 +165,33 @@ export function Sidebar({ currentPage }: SidebarProps) {
                 <Link
                   href={item.href}
                   className={cn(
-                    'flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200',
+                    'flex items-center px-3 py-3 text-sm font-medium rounded-xl transition-all duration-300 group hover:scale-105 interactive-hover',
                     item.current
-                      ? 'bg-primary-50 text-primary-700'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg glow-effect'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:shadow-md'
                   )}
                 >
-                  <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                  <span className="truncate">{item.name}</span>
+                  <item.icon className="w-5 h-5 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="truncate font-medium">{item.name}</span>
                 </Link>
               )}
             </div>
           ))}
         </nav>
 
-        {/* User Info */}
-        <div className="px-4 py-4 border-t border-gray-200 w-full overflow-hidden">
-          <div className="flex items-center w-full">
-            <div className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-semibold text-sm">AD</span>
+        {/* Enhanced User Info */}
+        <div className="px-4 py-4 border-t border-gradient-to-r from-blue-200 to-purple-200 w-full overflow-hidden slide-in-bottom">
+          <div className="flex items-center w-full p-3 rounded-xl bg-gradient-to-r from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 cursor-pointer group hover:scale-105">
+            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 glow-effect group-hover:scale-110 transition-transform duration-300">
+              <span className="text-white font-bold text-lg">👨‍💼</span>
             </div>
             <div className="ml-3 min-w-0 flex-1 overflow-hidden">
-              <p className="text-sm font-medium text-gray-900 truncate whitespace-nowrap">Admin User</p>
-              <p className="text-xs text-gray-500 truncate whitespace-nowrap">University Admin</p>
+              <p className="text-sm font-bold text-gray-900 truncate whitespace-nowrap group-hover:text-blue-700 transition-colors">
+                🎯 Admin User
+              </p>
+              <p className="text-xs text-gray-600 truncate whitespace-nowrap font-medium group-hover:text-gray-800 transition-colors">
+                ⚡ University Admin
+              </p>
             </div>
           </div>
         </div>

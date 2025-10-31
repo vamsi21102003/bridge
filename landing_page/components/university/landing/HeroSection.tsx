@@ -30,7 +30,7 @@ export function HeroSection() {
             </h1>
             
             <p className="hero-subtitle text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Connecting BPUT students with industry opportunities through intelligent 
+              Connecting university students with industry opportunities through intelligent 
               matching, skill development, and career guidance.
             </p>
 

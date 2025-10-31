@@ -118,13 +118,11 @@ export default function PlacementTrendsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gray-50 university-dashboard-layout dashboard-layout">
       <Header userRole="university_admin" currentPage="analytics" />
       
       <div className="flex">
-        <Sidebar currentPage="analytics" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
             {/* Header */}
             <div className="mb-8">
@@ -294,6 +292,8 @@ export default function PlacementTrendsPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="analytics" />
       </div>
     </div>
   );

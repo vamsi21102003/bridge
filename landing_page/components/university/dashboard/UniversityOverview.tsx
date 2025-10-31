@@ -93,11 +93,11 @@ export function UniversityOverview({ data, isLoading }: UniversityOverviewProps)
   ];
 
   const employabilityHeatMap = [
-    { college: 'KIIT', district: 'Bhubaneswar', score: 85 },
-    { college: 'NIT Rourkela', district: 'Rourkela', score: 92 },
-    { college: 'IIIT Bhubaneswar', district: 'Bhubaneswar', score: 88 },
-    { college: 'SOA University', district: 'Bhubaneswar', score: 82 },
-    { college: 'CET Bhubaneswar', district: 'Bhubaneswar', score: 78 },
+    { college: 'Gandhi Engineering College (GEC)', district: 'Bhubaneswar', score: 96 },
+    { college: 'Gandhi Institute for Education & Technology (GIET)', district: 'Bhubaneswar', score: 80 },
+    { college: 'Konark Institute of Science & Technology (KIST)', district: 'Bhubaneswar', score: 86 },
+    { college: 'C. V. Raman College of Engineering', district: 'Bhubaneswar', score: 80 },
+    { college: 'Trident Academy of Technology (TAT)', district: 'Bhubaneswar', score: 80 },
   ];
 
   return (
@@ -174,7 +174,7 @@ export function UniversityOverview({ data, isLoading }: UniversityOverviewProps)
           <div className="space-y-4">
             {[
               { type: 'placement', message: 'New placement record: 15 students placed at TCS', time: '2 hours ago' },
-              { type: 'verification', message: 'College verification completed for KIIT University', time: '4 hours ago' },
+              { type: 'verification', message: 'College verification completed for Gandhi Engineering College (GEC)', time: '4 hours ago' },
               { type: 'report', message: 'Monthly placement report generated', time: '1 day ago' },
               { type: 'registration', message: '5 new employers registered on platform', time: '2 days ago' },
             ].map((activity, index) => (

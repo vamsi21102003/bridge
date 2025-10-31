@@ -4,6 +4,7 @@ export const ROUTES = {
   DASHBOARD: '/dashboard/employer',
   ANALYTICS: '/dashboard/employer/analytics',
   APPLICANTS: '/dashboard/employer/applicants',
+  FEEDBACK: '/dashboard/employer/feedback',
 } as const
 
 export const COMPANY_INFO = {

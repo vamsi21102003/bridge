@@ -11,7 +11,7 @@ export interface FormData {
   confirmPassword: string;
   
   // Student-specific fields
-  bputRollNumber: string;
+  universityRollNumber: string;
   primaryBranch: string;
   collegeName: string;
   graduationYear: string;
@@ -41,17 +41,17 @@ export type UserType = 'student' | 'employer' | 'university';
 
 // ===== CONFIGURATION DATA =====
 export const AUTH_CONFIG = {
-  BPUT_COLLEGES: [
-    "VSSUT, Burla",
-    "CET, Bhubaneswar",
-    "IIIT, Bhubaneswar",
-    "IGIT, Sarang",
-    "PMEC, Berhampur",
-    "GCE, Keonjhar",
-    "Silicon Institute, Bhubaneswar",
-    "CV Raman Global University, Bhubaneswar",
-    "IMIT, Cuttack",
-    "GITA, Bhubaneswar",
+  UNIVERSITY_COLLEGES: [
+    "Gandhi Engineering College (GEC), Bhubaneswar",
+    "Gandhi Institute for Education & Technology (GIET), Bhubaneswar",
+    "College of Engineering Bhubaneswar (COEB), Bhubaneswar",
+    "Gandhi Institute of Excellent Technocrats (GIET), Bhubaneswar",
+    "Konark Institute of Science & Technology (KIST), Bhubaneswar",
+    "Trident Academy of Technology (TAT), Bhubaneswar",
+    "Krupajal Engineering College (KEC), Bhubaneswar",
+    "Gandhi Institute for Technology (GIFT), Bhubaneswar",
+    "C. V. Raman College of Engineering, Bhubaneswar",
+    "Institute of Management & Information Technology (IMIT), Cuttack",
     "Other College"
   ],
   
@@ -107,7 +107,7 @@ export const getInitialFormData = (): FormData => ({
   confirmPassword: '',
   
   // Student-specific fields
-  bputRollNumber: '',
+  universityRollNumber: '',
   primaryBranch: '',
   collegeName: '',
   graduationYear: '',
@@ -132,7 +132,7 @@ export const getInitialFormData = (): FormData => ({
 export const validateRoleSpecificFields = (userType: UserType, formData: FormData): boolean => {
   switch (userType) {
     case 'student':
-      return !!(formData.bputRollNumber && formData.primaryBranch && 
+      return !!(formData.universityRollNumber && formData.primaryBranch && 
                formData.collegeName && formData.graduationYear);
     case 'university':
       return !!(formData.collegeName && formData.designation && 
@@ -308,9 +308,9 @@ const DynamicRoleFields = ({ userType, formData, onChange }: DynamicRoleFieldsPr
     case 'student':
       return (
         <>
-          <InputField icon="🆔" type="text" name="bputRollNumber" placeholder="BPUT Roll Number / Unique ID" value={formData.bputRollNumber} onChange={onChange} required />
+          <InputField icon="🆔" type="text" name="universityRollNumber" placeholder="University Roll Number / Unique ID" value={formData.universityRollNumber} onChange={onChange} required />
           <SelectField icon="🎓" name="primaryBranch" placeholder="Select Primary Branch/Discipline" value={formData.primaryBranch} onChange={onChange} options={AUTH_CONFIG.BRANCHES} required />
-          <SelectField icon="🏫" name="collegeName" placeholder="Select College Name" value={formData.collegeName} onChange={onChange} options={AUTH_CONFIG.BPUT_COLLEGES} required />
+          <SelectField icon="🏫" name="collegeName" placeholder="Select College Name" value={formData.collegeName} onChange={onChange} options={AUTH_CONFIG.UNIVERSITY_COLLEGES} required />
           <SelectField icon="📅" name="graduationYear" placeholder="Select Graduation Year" value={formData.graduationYear} onChange={onChange} options={graduationYears} required />
           <InputField icon="💼" type="url" name="linkedinProfile" placeholder="LinkedIn Profile URL (Optional)" value={formData.linkedinProfile} onChange={onChange} />
         </>
@@ -319,7 +319,7 @@ const DynamicRoleFields = ({ userType, formData, onChange }: DynamicRoleFieldsPr
     case 'university':
       return (
         <>
-          <SelectField icon="🏛️" name="collegeName" placeholder="Select College Name" value={formData.collegeName} onChange={onChange} options={AUTH_CONFIG.BPUT_COLLEGES} required />
+          <SelectField icon="🏛️" name="collegeName" placeholder="Select College Name" value={formData.collegeName} onChange={onChange} options={AUTH_CONFIG.UNIVERSITY_COLLEGES} required />
           <InputField icon="👔" type="text" name="designation" placeholder="Designation (e.g., Placement Officer)" value={formData.designation} onChange={onChange} required />
           <InputField icon="📞" type="tel" name="officialContactNumber" placeholder="Official Contact Number" value={formData.officialContactNumber} onChange={onChange} required />
           <InputField icon="✉️" type="email" name="officialCollegeEmail" placeholder="Official College Email" value={formData.officialCollegeEmail} onChange={onChange} required />
@@ -433,7 +433,7 @@ export default function AuthenticationForm({
     setUserType(type);
     setFormData(prev => ({
       ...prev,
-      bputRollNumber: '',
+      universityRollNumber: '',
       primaryBranch: '',
       collegeName: type === 'student' || type === 'university' ? prev.collegeName : '',
       graduationYear: '',
@@ -455,7 +455,7 @@ export default function AuthenticationForm({
     switch (userType) {
       case 'student':
         return {
-          bputRollNumber: formData.bputRollNumber,
+          universityRollNumber: formData.universityRollNumber,
           primaryBranch: formData.primaryBranch,
           collegeName: formData.collegeName,
           graduationYear: formData.graduationYear,

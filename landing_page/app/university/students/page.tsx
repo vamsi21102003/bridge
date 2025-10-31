@@ -63,7 +63,7 @@ export default function StudentsPage() {
       id: 1,
       name: 'Rahul Sharma',
       department: 'CSE',
-      college: 'KIIT University',
+      college: 'Gandhi Engineering College (GEC)',
       company: 'Google',
       package: '₹45 LPA',
       date: '2024-10-28',
@@ -73,7 +73,7 @@ export default function StudentsPage() {
       id: 2,
       name: 'Priya Patel',
       department: 'ECE',
-      college: 'NIT Rourkela',
+      college: 'Gandhi Institute for Education & Technology (GIET)',
       company: 'Microsoft',
       package: '₹28 LPA',
       date: '2024-10-27',
@@ -83,7 +83,7 @@ export default function StudentsPage() {
       id: 3,
       name: 'Amit Kumar',
       department: 'IT',
-      college: 'IIIT Bhubaneswar',
+      college: 'Konark Institute of Science & Technology (KIST)',
       company: 'Amazon',
       package: '₹35 LPA',
       date: '2024-10-26',
@@ -93,7 +93,7 @@ export default function StudentsPage() {
       id: 4,
       name: 'Sneha Singh',
       department: 'CSE',
-      college: 'SOA University',
+      college: 'C. V. Raman College of Engineering',
       company: 'TCS',
       package: '₹7.5 LPA',
       date: '2024-10-25',
@@ -103,7 +103,7 @@ export default function StudentsPage() {
       id: 5,
       name: 'Vikash Jena',
       department: 'ME',
-      college: 'CET Bhubaneswar',
+      college: 'Trident Academy of Technology (TAT)',
       company: 'Infosys',
       package: '₹6.2 LPA',
       date: '2024-10-24',
@@ -130,21 +130,22 @@ export default function StudentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 university-dashboard-layout dashboard-layout university-website particle-bg">
       <Header userRole="university_admin" currentPage="students" />
       
       <div className="flex">
-        <Sidebar currentPage="students" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Student Analytics
-              </h1>
-              <p className="text-gray-600">
-                Comprehensive overview of student placement performance
+            {/* Enhanced Header */}
+            <div className="mb-8 slide-in-left">
+              <div className="relative">
+                <h1 className="text-4xl font-bold gradient-text mb-4 float-animation">
+                  👨‍🎓 Student Analytics
+                </h1>
+                <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse"></div>
+              </div>
+              <p className="text-lg text-gray-700 slide-in-right stagger-2 font-medium">
+                📊 Comprehensive overview of student placement performance
               </p>
             </div>
 
@@ -288,6 +289,8 @@ export default function StudentsPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="students" />
       </div>
     </div>
   );

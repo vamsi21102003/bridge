@@ -159,13 +159,11 @@ export default function AIInsightsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 bput-dashboard-layout dashboard-layout">
+    <div className="min-h-screen bg-gray-50 university-dashboard-layout dashboard-layout">
       <Header userRole="university_admin" currentPage="ai-insights" />
       
       <div className="flex">
-        <Sidebar currentPage="ai-insights" />
-        
-        <main className="main-content-with-sidebar p-6">
+        <main className="main-content-with-sidebar-right p-6">
           <div className="page-enter">
             {/* Header */}
             <div className="mb-8">
@@ -282,6 +280,8 @@ export default function AIInsightsPage() {
             </div>
           </div>
         </main>
+        
+        <Sidebar currentPage="ai-insights" />
       </div>
     </div>
   );
