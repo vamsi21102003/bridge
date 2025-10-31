@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/student/Header';
 import Hero from '@/components/student/Hero';
+import AIBuddy from '@/components/student/AIBuddy';
 import AISkillGapAnalyser from '@/components/student/AISkillGapAnalyser';
 import ProfileSidebar from '@/components/student/ProfileSidebar';
 import OpportunityCard from '@/components/student/OpportunityCard';
@@ -15,7 +16,7 @@ const HomePage: React.FC = () => {
   const { t } = useLanguage();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [activeJobTab, setActiveJobTab] = useState<'available' | 'recommended'>('available');
-  const [activeCourseTab, setActiveCourseTab] = useState<'youtube' | 'coursera'>('youtube');
+
 
   // Mock data
   const mockOpportunities: Opportunity[] = [
@@ -150,29 +151,54 @@ const mockGames: Game[] = [
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
-      {/* Enhanced Animated Background Elements */}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      {/* Beautiful Floating Bubbles Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large Gradient Orbs */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-20 -right-20 w-80 h-80 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-full blur-3xl animate-float-delayed"></div>
+        {/* Primary Floating Bubbles with Student Theme */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl opacity-20 animate-float flex items-center justify-center text-2xl backdrop-blur-sm shadow-2xl">📚</div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl opacity-30 animate-float-delayed flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🎓</div>
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-25 animate-float flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl">🚀</div>
+        <div className="absolute top-1/3 right-1/3 w-18 h-18 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl opacity-20 animate-float-delayed flex items-center justify-center text-2xl backdrop-blur-sm shadow-xl">💡</div>
+        <div className="absolute bottom-20 right-10 w-22 h-22 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-3xl opacity-30 animate-float flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl">⭐</div>
+        
+        {/* Student-themed Secondary Bubbles */}
+        <div className="absolute top-60 left-1/2 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full opacity-25 animate-bounce flex items-center justify-center text-xl backdrop-blur-sm">🎯</div>
+        <div className="absolute top-80 right-1/4 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl opacity-20 animate-pulse flex items-center justify-center text-lg backdrop-blur-sm">🏆</div>
+        <div className="absolute bottom-40 left-1/3 w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl opacity-30 animate-spin flex items-center justify-center text-xl backdrop-blur-sm" style={{ animationDuration: '4s' }}>🌟</div>
+        <div className="absolute top-1/4 left-3/4 w-15 h-15 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-25 animate-float flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">💻</div>
+        <div className="absolute bottom-60 right-1/3 w-13 h-13 bg-gradient-to-br from-violet-400 to-purple-500 rounded-full opacity-20 animate-bounce flex items-center justify-center text-lg backdrop-blur-sm">🎨</div>
+        
+        {/* Floating Particle Effects */}
+        <div className="absolute top-10 left-1/2 w-3 h-3 bg-blue-400 rounded-full animate-ping opacity-60"></div>
+        <div className="absolute top-32 right-1/3 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-60 left-1/4 w-3 h-3 bg-green-400 rounded-full animate-ping opacity-60" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-10 right-1/2 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/5 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-3/4 right-1/5 w-3 h-3 bg-indigo-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '2.5s' }}></div>
+        
+        {/* Large Gradient Orbs for Depth */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-20 -right-20 w-80 h-80 bg-gradient-to-r from-purple-400/12 to-pink-400/12 rounded-full blur-3xl animate-float-delayed"></div>
         <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-gradient-to-r from-emerald-400/10 to-teal-400/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-gradient-to-r from-orange-400/8 to-red-400/8 rounded-full blur-3xl animate-float-delayed"></div>
         
-        {/* Floating Geometric Shapes */}
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-500/30 rounded-full animate-ping"></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-purple-500/30 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 left-1/2 w-5 h-5 bg-emerald-500/30 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-pink-500/30 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-        
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-12 gap-4 h-full">
-            {Array.from({ length: 144 }, (_, i) => (
-              <div key={i} className="bg-blue-500/20 rounded-sm animate-pulse" style={{ animationDelay: `${i * 0.1}s` }}></div>
-            ))}
-          </div>
-        </div>
+        {/* Student Network Connection Lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-8" viewBox="0 0 1000 600">
+          <defs>
+            <linearGradient id="studentNetworkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4"/>
+              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.3"/>
+              <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4"/>
+            </linearGradient>
+          </defs>
+          <g className="animate-pulse">
+            <line x1="150" y1="100" x2="350" y2="80" stroke="url(#studentNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="350" y1="80" x2="550" y2="150" stroke="url(#studentNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="550" y1="150" x2="750" y2="120" stroke="url(#studentNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="250" y1="300" x2="450" y2="350" stroke="url(#studentNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="450" y1="350" x2="650" y2="300" stroke="url(#studentNetworkGradient)" strokeWidth="1.5"/>
+          </g>
+        </svg>
       </div>
 
       <Header onProfileClick={() => setIsProfileOpen(true)} />
@@ -180,14 +206,18 @@ const mockGames: Game[] = [
       
       <Hero />
       
+      {/* AI Buddy Section */}
+      <AIBuddy />
+      
       {/* Enhanced Featured Updates Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Glass Section Background */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full animate-float blur-xl"></div>
-        <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full animate-float-delayed blur-xl"></div>
+        {/* Beautiful Featured Updates Floating Bubbles */}
+        <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl opacity-20 animate-float flex items-center justify-center text-2xl backdrop-blur-sm shadow-2xl">✨</div>
+        <div className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl opacity-25 animate-float-delayed flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🚀</div>
+        <div className="absolute top-1/2 left-1/4 w-18 h-18 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full opacity-20 animate-bounce flex items-center justify-center text-lg backdrop-blur-sm">💡</div>
         
         <div className="relative z-10">
           <div className="text-center mb-16">
@@ -265,9 +295,11 @@ const mockGames: Game[] = [
         {/* Glass Section Background */}
         <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-10 right-10 w-24 h-24 bg-gradient-to-r from-orange-400/15 to-red-400/15 rounded-full animate-float blur-2xl"></div>
-        <div className="absolute bottom-10 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/15 to-purple-400/15 rounded-full animate-float-delayed blur-2xl"></div>
+        {/* Beautiful Floating Career Bubbles */}
+        <div className="absolute top-10 right-10 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-3xl opacity-20 animate-float flex items-center justify-center text-2xl backdrop-blur-sm shadow-2xl">💼</div>
+        <div className="absolute bottom-10 left-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl opacity-25 animate-float-delayed flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🚀</div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full opacity-20 animate-bounce flex items-center justify-center text-lg backdrop-blur-sm">💰</div>
+        <div className="absolute bottom-1/3 right-1/3 w-18 h-18 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl opacity-25 animate-float flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🎯</div>
         
         <div className="relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-16 gap-8">
@@ -321,19 +353,27 @@ const mockGames: Game[] = [
         </div>
       </section> 
       {/* Enhanced Mentors Section with Glass Effects */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
         {/* Glass Section Background */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-16 right-16 w-28 h-28 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-full animate-float blur-2xl"></div>
-        <div className="absolute bottom-16 left-16 w-24 h-24 bg-gradient-to-r from-blue-400/15 to-cyan-400/15 rounded-full animate-float-delayed blur-2xl"></div>
-        <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full animate-float blur-xl"></div>
+        {/* Visible Floating Elements - Mentor Theme */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl opacity-60 animate-float flex items-center justify-center text-2xl backdrop-blur-sm shadow-2xl z-10">👨‍💻</div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl opacity-70 animate-float-delayed flex items-center justify-center text-xl backdrop-blur-sm shadow-xl z-10">👩‍💼</div>
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-65 animate-float flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl z-10">🎯</div>
+        <div className="absolute top-1/3 right-1/3 w-18 h-18 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl opacity-60 animate-float-delayed flex items-center justify-center text-2xl backdrop-blur-sm shadow-xl z-10">💡</div>
+        <div className="absolute bottom-20 right-10 w-22 h-22 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-3xl opacity-70 animate-float flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl z-10">🌟</div>
         
-        {/* Animated Mentor Icons */}
-        <div className="absolute top-20 left-20 text-3xl animate-bounce opacity-20">👨‍💻</div>
-        <div className="absolute bottom-20 right-20 text-3xl animate-bounce opacity-20" style={{ animationDelay: '1s' }}>👩‍💼</div>
-        <div className="absolute top-1/2 right-1/4 text-2xl animate-bounce opacity-25" style={{ animationDelay: '2s' }}>🎯</div>
+        {/* Secondary Mentor Elements */}
+        <div className="absolute top-60 left-1/2 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full opacity-65 animate-bounce flex items-center justify-center text-xl backdrop-blur-sm z-10">📚</div>
+        <div className="absolute top-80 right-1/4 w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl opacity-60 animate-pulse flex items-center justify-center text-lg backdrop-blur-sm z-10">🚀</div>
+        <div className="absolute bottom-40 left-1/3 w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl opacity-70 animate-spin flex items-center justify-center text-xl backdrop-blur-sm z-10" style={{ animationDuration: '4s' }}>💼</div>
+        
+        {/* Bright Particle Effects */}
+        <div className="absolute top-10 left-1/2 w-4 h-4 bg-blue-500 rounded-full animate-ping opacity-80 z-10"></div>
+        <div className="absolute top-32 right-1/3 w-3 h-3 bg-purple-500 rounded-full animate-ping opacity-70 z-10" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-60 left-1/4 w-4 h-4 bg-green-500 rounded-full animate-ping opacity-80 z-10" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-10 right-1/2 w-3 h-3 bg-pink-500 rounded-full animate-ping opacity-70 z-10" style={{ animationDelay: '1.5s' }}></div>
         
         <div className="relative z-10">
           <div className="text-center mb-16">
@@ -452,14 +492,12 @@ const mockGames: Game[] = [
         {/* Glass Section Background */}
         <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10"></div>
         
-        {/* Gaming Floating Elements */}
-        <div className="absolute top-12 right-12 w-32 h-32 bg-gradient-to-r from-green-400/15 to-emerald-400/15 rounded-full animate-float blur-2xl"></div>
-        <div className="absolute bottom-12 left-12 w-28 h-28 bg-gradient-to-r from-yellow-400/15 to-orange-400/15 rounded-full animate-float-delayed blur-2xl"></div>
-        
-        {/* Gaming Icons Floating */}
-        <div className="absolute top-20 left-20 text-3xl animate-bounce opacity-20">🎮</div>
-        <div className="absolute bottom-20 right-20 text-3xl animate-bounce opacity-20" style={{ animationDelay: '1s' }}>🏆</div>
-        <div className="absolute top-1/3 right-1/3 text-2xl animate-bounce opacity-25" style={{ animationDelay: '2s' }}>⚡</div>
+        {/* Beautiful Gaming Floating Bubbles */}
+        <div className="absolute top-12 right-12 w-32 h-32 bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl opacity-20 animate-float flex items-center justify-center text-4xl backdrop-blur-sm shadow-2xl">🎮</div>
+        <div className="absolute bottom-12 left-12 w-28 h-28 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-25 animate-float-delayed flex items-center justify-center text-3xl backdrop-blur-sm shadow-xl">🏆</div>
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full opacity-20 animate-bounce flex items-center justify-center text-2xl backdrop-blur-sm">⚡</div>
+        <div className="absolute bottom-1/3 left-1/4 w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl opacity-25 animate-float flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🎯</div>
+        <div className="absolute top-1/4 left-1/3 w-18 h-18 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full opacity-20 animate-float-delayed flex items-center justify-center text-lg backdrop-blur-sm">🌟</div>
         
         <div className="relative z-10">
           <div className="text-center mb-16">
