@@ -71,6 +71,13 @@ const Header: React.FC<HeaderProps> = ({ onProfileClick }) => {
               <span>{t('nav.badges')}</span>
             </Link>
             <Link
+              href="/dashboard/student/feedback"
+              className="flex items-center space-x-1.5 text-white/90 hover:text-white font-medium transition-colors text-sm xl:text-base"
+            >
+              <span className="text-base xl:text-lg">💬</span>
+              <span>Success Stories</span>
+            </Link>
+            <Link
               href="/ai-pro"
               className="flex items-center space-x-1.5 px-3 xl:px-4 py-2 bg-white/20 backdrop-blur-md text-white rounded-full font-medium hover:bg-white/30 transition-all relative border border-white/30 text-sm xl:text-base"
             >
