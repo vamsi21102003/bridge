@@ -77,12 +77,9 @@ function getTranslations() {
         tagline: 'Bridge the gap. Build the future'
       },
       hero: {
-        title: {
-          line1: 'Uni-BriDGe Real-time',
-          line2: 'Intelligent Digital',
-          line3: 'Guidance Engine'
-        },
-        description: 'Discover your perfect career path with AI-recommended jobs and internships tailored to your unique profile. Get structured career guidance, skill analysis, and personalized job matches through BriDGe Pro personalised features.',
+        title: 'BriDGe',
+        tagline: 'Where Intelligence Meets Opportunity',
+        description: 'Experience the power of BriDGe - our revolutionary Real-time Intelligent Digital Guidance Engine that transforms career discovery. Get AI-powered job recommendations, structured career paths, and personalized guidance that adapts to your unique journey in real-time.',
         getStarted: 'Get Started',
         watchDemo: 'Watch Demo'
       },
@@ -143,12 +140,9 @@ function getTranslations() {
         tagline: 'अंतर को पाटें। भविष्य का निर्माण करें'
       },
       hero: {
-        title: {
-          line1: 'Uni-BriDGe रियल-टाइम',
-          line2: 'इंटेलिजेंट डिजिटल',
-          line3: 'गाइडेंस इंजन'
-        },
-        description: 'AI-अनुशंसित नौकरियों और इंटर्नशिप के साथ अपना सही करियर पथ खोजें जो आपकी अनूठी प्रोफाइल के अनुकूल हैं। BriDGe Pro व्यक्तिगत सुविधाओं के माध्यम से संरचित करियर मार्गदर्शन, कौशल विश्लेषण और व्यक्तिगत नौकरी मैच प्राप्त करें।',
+        title: 'BriDGe',
+        tagline: 'जहाँ बुद्धिमत्ता अवसर से मिलती है',
+        description: 'BriDGe की शक्ति का अनुभव करें - हमारा क्रांतिकारी रियल-टाइम इंटेलिजेंट डिजिटल गाइडेंस इंजन जो करियर खोज को बदल देता है। AI-संचालित नौकरी सिफारिशें, संरचित करियर पथ, और व्यक्तिगत मार्गदर्शन प्राप्त करें जो रियल-टाइम में आपकी अनूठी यात्रा के अनुकूल होता है।',
         getStarted: 'शुरू करें',
         watchDemo: 'डेमो देखें'
       },
@@ -209,12 +203,9 @@ function getTranslations() {
         tagline: 'ଫାଙ୍କ ପୂରଣ କରନ୍ତୁ। ଭବିଷ୍ୟତ ଗଢ଼ନ୍ତୁ'
       },
       hero: {
-        title: {
-          line1: 'Uni-BriDGe ରିଅଲ୍-ଟାଇମ୍',
-          line2: 'ଇଣ୍ଟେଲିଜେଣ୍ଟ ଡିଜିଟାଲ୍',
-          line3: 'ଗାଇଡେନ୍ସ ଇଞ୍ଜିନ୍'
-        },
-        description: 'ଆପଣଙ୍କର ଅନନ୍ୟ ପ୍ରୋଫାଇଲ୍ ଅନୁଯାୟୀ AI-ସୁପାରିଶିତ ଚାକିରି ଏବଂ ଇଣ୍ଟର୍ନସିପ୍ ସହିତ ଆପଣଙ୍କର ସଠିକ୍ କ୍ୟାରିୟର ପଥ ଆବିଷ୍କାର କରନ୍ତୁ। BriDGe Pro ବ୍ୟକ୍ତିଗତ ବୈଶିଷ୍ଟ୍ୟ ମାଧ୍ୟମରେ ସଂରଚିତ କ୍ୟାରିୟର ମାର୍ଗଦର୍ଶନ, କୌଶଳ ବିଶ୍ଳେଷଣ ଏବଂ ବ୍ୟକ୍ତିଗତ ଚାକିରି ମ୍ୟାଚ୍ ପାଆନ୍ତୁ।',
+        title: 'BriDGe',
+        tagline: 'ଯେଉଁଠାରେ ବୁଦ୍ଧିମତା ସୁଯୋଗ ସହିତ ମିଳେ',
+        description: 'BriDGe ର ଶକ୍ତି ଅନୁଭବ କରନ୍ତୁ - ଆମର ବିପ୍ଳବୀ ରିଅଲ୍-ଟାଇମ୍ ଇଣ୍ଟେଲିଜେଣ୍ଟ ଡିଜିଟାଲ୍ ଗାଇଡେନ୍ସ ଇଞ୍ଜିନ୍ ଯାହା କ୍ୟାରିୟର ଆବିଷ୍କାରକୁ ପରିବର୍ତ୍ତନ କରେ। AI-ଚାଳିତ ଚାକିରି ସୁପାରିଶ, ସଂରଚିତ କ୍ୟାରିୟର ପଥ ଏବଂ ବ୍ୟକ୍ତିଗତ ମାର୍ଗଦର୍ଶନ ପାଆନ୍ତୁ ଯାହା ରିଅଲ୍-ଟାଇମ୍ରେ ଆପଣଙ୍କର ଅନନ୍ୟ ଯାତ୍ରା ସହିତ ଖାପ ଖାଏ।',
         getStarted: 'ଆରମ୍ଭ କରନ୍ତୁ',
         watchDemo: 'ଡେମୋ ଦେଖନ୍ତୁ'
       },

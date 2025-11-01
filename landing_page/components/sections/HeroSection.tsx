@@ -23,13 +23,62 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Content */}
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              {t('hero.title.line1')}
-              <br />
-              <span className="text-purple-600">{t('hero.title.line2')}</span>
-              <br />
-              <span className="text-blue-500">{t('hero.title.line3')}</span>
-            </h1>
+            <div className="space-y-8 text-center">
+              {/* Main BriDGe Title */}
+              <div className="space-y-4">
+                <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black leading-none">
+                  <span className="bridge-gradient-flow font-extrabold tracking-tighter transform hover:scale-105 transition-all duration-500 inline-block">
+                    {t('hero.title')}
+                  </span>
+                </h1>
+                
+                {/* Creative Tagline */}
+                <div className="relative">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 animate-pulse">
+                    {t('hero.tagline')}
+                  </p>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full animate-pulse"></div>
+                </div>
+              </div>
+
+              {/* Acronym Breakdown */}
+              <div className="bridge-acronym-container bg-gradient-to-r from-purple-50 via-blue-50 to-cyan-50 p-6 rounded-3xl border border-purple-200 shadow-2xl hover:shadow-3xl transition-all duration-500 max-w-4xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                  <div className="bridge-letter bg-gradient-to-br from-purple-500 to-purple-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-purple-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">B</div>
+                    <div className="text-sm font-medium">BPUT</div>
+                  </div>
+                  <div className="bridge-letter bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:-rotate-3 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">R</div>
+                    <div className="text-sm font-medium">Real-time</div>
+                  </div>
+                  <div className="bridge-letter bg-gradient-to-br from-indigo-500 to-indigo-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-indigo-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">I</div>
+                    <div className="text-sm font-medium">Intelligent</div>
+                  </div>
+                  <div className="bridge-letter bg-gradient-to-br from-cyan-500 to-cyan-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:-rotate-3 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">D</div>
+                    <div className="text-sm font-medium">Digital</div>
+                  </div>
+                  <div className="bridge-letter bg-gradient-to-br from-teal-500 to-teal-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-teal-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">G</div>
+                    <div className="text-sm font-medium">Guidance</div>
+                  </div>
+                  <div className="bridge-letter bg-gradient-to-br from-green-500 to-green-600 text-white px-6 py-4 rounded-2xl font-bold text-center transform hover:scale-110 hover:-rotate-3 transition-all duration-300 shadow-lg hover:shadow-green-500/50">
+                    <div className="text-3xl mb-2 bridge-letter-animate">E</div>
+                    <div className="text-sm font-medium">Engine</div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 text-center">
+                  <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white rounded-full text-base font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                    <span className="animate-pulse mr-3 text-xl">🚀</span>
+                    Revolutionizing Career Guidance with AI
+                    <span className="animate-pulse ml-3 text-xl">✨</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
               {t('hero.description')}

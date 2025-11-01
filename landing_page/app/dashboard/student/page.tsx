@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/student/Header';
 import Hero from '@/components/student/Hero';
-import AIBuddy from '@/components/student/AIBuddy';
+
 import AISkillGapAnalyser from '@/components/student/AISkillGapAnalyser';
 import ProfileSidebar from '@/components/student/ProfileSidebar';
 import OpportunityCard from '@/components/student/OpportunityCard';
@@ -206,9 +206,6 @@ const mockGames: Game[] = [
       <ProfileSidebar isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
       
       <Hero />
-      
-      {/* AI Buddy Section */}
-      <AIBuddy />
       
       {/* Enhanced Featured Updates Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import EMPBriDGe Dashboard Styles */
+@import '../styles/empbridge-dashboard.css';
+
 @layer base {
   /* Only apply smooth scrolling - safe for integration */
   html {
@@ -498,3 +501,376 @@ BriDGe Dashboard Specific Animations */
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-25px) rotate(5deg); }
 }
+/*
+ BriDGe Acronym Animations */
+@keyframes bridge-letter-glow {
+  0%, 100% { 
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bridge-acronym-reveal {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.8);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bridge-underline-expand {
+  0% { 
+    width: 0; 
+    opacity: 0;
+  }
+  100% { 
+    width: 100%; 
+    opacity: 1;
+  }
+}
+
+.bridge-letter-animate {
+  animation: bridge-letter-glow 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.bridge-letter-animate:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.bridge-acronym-container {
+  animation: bridge-acronym-reveal 0.8s ease-out;
+}
+
+.bridge-acronym-container .bridge-letter:nth-child(1) { animation-delay: 0.1s; }
+.bridge-acronym-container .bridge-letter:nth-child(2) { animation-delay: 0.2s; }
+.bridge-acronym-container .bridge-letter:nth-child(3) { animation-delay: 0.3s; }
+.bridge-acronym-container .bridge-letter:nth-child(4) { animation-delay: 0.4s; }
+.bridge-acronym-container .bridge-letter:nth-child(5) { animation-delay: 0.5s; }
+.bridge-acronym-container .bridge-letter:nth-child(6) { animation-delay: 0.6s; }
+
+.bridge-title-underline {
+  animation: bridge-underline-expand 1.5s ease-out 0.5s both;
+}
+
+/* Enhanced gradient animation for BriDGe */
+@keyframes bridge-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bridge-gradient-flow {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+  background-size: 400% 400%;
+  animation: bridge-gradient-flow 4s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/* App
+licants Page Minimalistic Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Smooth card entrance animations */
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Hover enhancement for interactive elements */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}/* Analyti
+cs Chart Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes chartPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pieRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes barGrow {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes numberCount {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Chart hover effects */
+.chart-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-hover-effect:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animated chart elements */
+.animate-chart-pulse {
+  animation: chartPulse 2s ease-in-out infinite;
+}
+
+.animate-number-count {
+  animation: numberCount 0.8s ease-out both;
+}
+
+.animate-bar-grow {
+  animation: barGrow 1.5s ease-out both;
+}  
+/* Enhanced animations for Skills and Guidance sections */
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.6); }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+  
+  .animate-float-gentle {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Cursor trail effect */
+  .cursor-trail {
+    pointer-events: none;
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: all 0.1s ease-out;
+  }  /* En
+hanced checkmark animations */
+  @keyframes checkmark-fill {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes checkmark-draw {
+    0% {
+      stroke-dasharray: 0 100;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: 100 0;
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .animate-checkmark-fill {
+    animation: checkmark-fill 0.4s ease-out forwards;
+  }
+  
+  .animate-checkmark-draw {
+    animation: checkmark-draw 0.5s ease-out forwards;
+  }
+  
+  /* Enhanced hover effects for skill cards */
+  .skill-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .skill-card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Gradient border animation */
+  @keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient-border {
+    background-size: 200% 200%;
+    animation: gradient-border 3s ease infinite;
+  }
+
+  /* Global Floating Chatbot Button Styles */
+  .floating-chatbot-container {
+    position: fixed !important;
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+  }
+  
+  .floating-chatbot-container > * {
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure button is visible on all backgrounds */
+  .floating-chatbot-button {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Custom animations for chatbot */
+  @keyframes chatbot-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  @keyframes chatbot-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+      transform: scale(1.05);
+    }
+  }
+  
+  .chatbot-bounce {
+    animation: chatbot-bounce 2s ease-in-out infinite;
+  }
+  
+  .chatbot-pulse {
+    animation: chatbot-pulse 2s ease-in-out infinite;
+  }
