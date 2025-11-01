@@ -21,7 +21,7 @@ function HomePageContent() {
   useSimpleAnimations()
   
   // Auth modal context
-  const { isModalOpen, closeModal } = useAuthModal()
+  const { isModalOpen, closeModal, submitModalForm } = useAuthModal()
   
   // Scroll-triggered modal hook
   const { isTriggered, resetTrigger } = useScrollToBottom({
@@ -37,9 +37,9 @@ function HomePageContent() {
 
   const handleSignIn = (data: any) => {
     console.log('Sign in data:', data);
-    // Handle sign in logic here
+    // Pass the data to the auth page
+    submitModalForm(data);
     resetTrigger();
-    closeModal();
   };
 
   const handleSocialLogin = (provider: string) => {

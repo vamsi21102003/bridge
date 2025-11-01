@@ -202,8 +202,20 @@ interface DynamicRoleFieldsProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
+interface ModalAuthData {
+  mode: 'signin' | 'signup'
+  role: 'student' | 'employer' | 'institution'
+  email: string
+  password: string
+  fullName?: string
+  confirmPassword?: string
+  remember?: boolean
+}
+
 interface AuthenticationFormProps {
-  initialMode?: 'login' | 'signup';
+  initialMode?: 'Login' | 'Sign Up';
+  initialUserType?: UserType;
+  initialData?: ModalAuthData | null;
   defaultUserType?: UserType;
   onSubmit?: (data: {
     mode: 'Sign Up' | 'Login';
@@ -346,22 +358,49 @@ const DynamicRoleFields = ({ userType, formData, onChange }: DynamicRoleFieldsPr
 
 // ===== MAIN AUTHENTICATION FORM COMPONENT =====
 export default function AuthenticationForm({ 
-  initialMode = 'login',
+  initialMode = 'Login',
+  initialUserType,
+  initialData,
   defaultUserType = 'student',
   onSubmit, 
   onSocialLogin 
 }: AuthenticationFormProps) {
+  // Determine the actual initial mode and user type
+  const actualInitialMode = initialMode || (initialData?.mode === 'signup' ? 'Sign Up' : 'Login')
+  const actualUserType = initialUserType || (initialData?.role === 'institution' ? 'university' : initialData?.role) || defaultUserType
+  
   // State management - Start with prop-based initial state to avoid hydration mismatch
   const [animationState, setAnimationState] = useState<AnimationState>({
-    isActive: initialMode === 'signup',
+    isActive: actualInitialMode === 'Sign Up',
     isAnimating: false
   });
 
   // Track if component has mounted to avoid hydration issues
   const [isMounted, setIsMounted] = useState(false);
   
-  const [userType, setUserType] = useState<UserType>(defaultUserType);
+  const [userType, setUserType] = useState<UserType>(actualUserType);
+  
   const [formData, setFormData] = useState<FormData>(getInitialFormData());
+
+  // Update form data when initialData changes (after sessionStorage is read)
+  useEffect(() => {
+    console.log('AuthenticationForm received initialData:', initialData)
+    if (initialData) {
+      console.log('Updating form data with:', {
+        email: initialData.email,
+        password: initialData.password,
+        fullName: initialData.fullName,
+        confirmPassword: initialData.confirmPassword
+      })
+      setFormData(prev => ({
+        ...prev,
+        email: initialData.email || '',
+        password: initialData.password || '',
+        fullName: initialData.fullName || '',
+        confirmPassword: initialData.confirmPassword || ''
+      }));
+    }
+  }, [initialData]);
 
   // Handle initial URL parameter check after mount to avoid hydration mismatch
   useEffect(() => {
