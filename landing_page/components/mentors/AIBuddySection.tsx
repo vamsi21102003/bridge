@@ -7,18 +7,18 @@ export function AIBuddySection() {
   const [selectedMood, setSelectedMood] = useState('')
   const [inputMessage, setInputMessage] = useState('')
 
-  const moods = [
-    { id: 'stressed', label: "I'm feeling stressed 😰", color: 'from-red-400 to-pink-500' },
-    { id: 'career', label: "Need career advice 💼", color: 'from-blue-400 to-indigo-500' },
-    { id: 'motivated', label: "Feeling motivated! 🚀", color: 'from-green-400 to-emerald-500' },
-    { id: 'doubts', label: "Having doubts 😕", color: 'from-yellow-400 to-orange-500' }
+  const careerTopics = [
+    { id: 'career-path', label: "Career Path Planning 🗺️", color: 'from-blue-400 to-indigo-500' },
+    { id: 'skill-dev', label: "Skill Development 📚", color: 'from-green-400 to-emerald-500' },
+    { id: 'interview', label: "Interview Preparation 💼", color: 'from-purple-400 to-violet-500' },
+    { id: 'resume', label: "Resume Optimization 📄", color: 'from-orange-400 to-red-500' }
   ]
 
   const stats = [
-    { label: '24/7', sublabel: 'Always Here', icon: '🕐' },
-    { label: '100K+', sublabel: 'Conversations', icon: '💬' },
-    { label: '98%', sublabel: 'Satisfaction', icon: '❤️' },
-    { label: '∞', sublabel: 'Care & Support', icon: '🤗' }
+    { label: '100K+', sublabel: 'Career Queries', icon: '💼' },
+    { label: '95%', sublabel: 'Success Rate', icon: '🎯' },
+    { label: '500+', sublabel: 'Skills Covered', icon: '📚' },
+    { label: '∞', sublabel: 'Growth Potential', icon: '📈' }
   ]
 
   return (
@@ -41,31 +41,27 @@ export function AIBuddySection() {
             </div>
             
             <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
-              YOUR AI BUDDY 🤖💙
+              YOUR AI MENTOR 🤖🎯
             </h2>
             
             <p className="text-slate-700 text-lg max-w-2xl mx-auto leading-relaxed">
-              Your personal AI companion for emotional support, career guidance, and 24/7 assistance.
+              Your professional AI career mentor for expert guidance, skill development, and career advancement strategies.
             </p>
           </div>
 
           {/* Feature Tags */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <div className="flex items-center space-x-2 px-4 py-2 bg-orange-100 rounded-full">
-              <span>😊</span>
-              <span className="text-orange-700 font-medium text-sm">Emotional Support</span>
-            </div>
             <div className="flex items-center space-x-2 px-4 py-2 bg-blue-100 rounded-full">
               <span>💼</span>
               <span className="text-blue-700 font-medium text-sm">Career Guidance</span>
             </div>
             <div className="flex items-center space-x-2 px-4 py-2 bg-green-100 rounded-full">
-              <span>🕐</span>
-              <span className="text-green-700 font-medium text-sm">24/7 Available</span>
+              <span>🎯</span>
+              <span className="text-green-700 font-medium text-sm">Skill Development</span>
             </div>
             <div className="flex items-center space-x-2 px-4 py-2 bg-purple-100 rounded-full">
-              <span>💬</span>
-              <span className="text-purple-700 font-medium text-sm">Friendly Chat</span>
+              <span>📈</span>
+              <span className="text-purple-700 font-medium text-sm">Career Strategy</span>
             </div>
           </div>
 
@@ -80,28 +76,28 @@ export function AIBuddySection() {
                 <div className="flex-1">
                   <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl rounded-tl-sm p-4 shadow-lg">
                     <p className="text-sm md:text-base">
-                      Hi there! 👋 I'm your AI Buddy! I'm here to support you emotionally and help with your career journey. How are you feeling today?
+                      Hello! 👋 I'm your AI Career Mentor! I'm here to help you advance your career, develop skills, and achieve your professional goals. What career challenge can I help you with today?
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Mood Selection */}
+            {/* Career Topics Selection */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-              {moods.map((mood) => (
+              {careerTopics.map((topic) => (
                 <motion.button
-                  key={mood.id}
-                  onClick={() => setSelectedMood(mood.id)}
+                  key={topic.id}
+                  onClick={() => setSelectedMood(topic.id)}
                   className={`p-3 rounded-xl text-sm font-medium transition-all duration-300 ${
-                    selectedMood === mood.id
-                      ? `bg-gradient-to-r ${mood.color} text-white shadow-lg transform scale-105`
+                    selectedMood === topic.id
+                      ? `bg-gradient-to-r ${topic.color} text-white shadow-lg transform scale-105`
                       : 'bg-white/70 text-gray-700 hover:bg-white/90 shadow-md hover:shadow-lg'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {mood.label}
+                  {topic.label}
                 </motion.button>
               ))}
             </div>
@@ -117,7 +113,7 @@ export function AIBuddySection() {
                     type="text"
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
-                    placeholder="Share what's on your mind... I'm here to help! 💙"
+                    placeholder="Ask me about your career goals, skills, or professional development... 🎯"
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-500"
                   />
                 </div>

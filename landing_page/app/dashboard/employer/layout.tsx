@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/dashboard/Navbar';
 import SidebarProfile from '@/components/dashboard/SidebarProfile';
 import Footer from '@/components/dashboard/Footer';
-import '@/styles/empbridge-dashboard.css';
+
 
 export default function EmployerDashboardLayout({
   children,

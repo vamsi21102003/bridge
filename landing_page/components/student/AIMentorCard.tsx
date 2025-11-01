@@ -50,9 +50,9 @@ const AIMentorCard: React.FC = () => {
           </div>
         </div>
 
-        <h3 className="text-2xl font-bold mb-2">AI Career Assistant</h3>
+        <h3 className="text-2xl font-bold mb-2">AI Career Mentor</h3>
         <p className="text-white/90 mb-1">Powered by Advanced AI</p>
-        <p className="text-white/70 text-sm mb-4">Available 24/7 • Instant Responses</p>
+        <p className="text-white/70 text-sm mb-4">Professional Guidance • Career Strategy</p>
 
         {/* AI Capabilities */}
         <div className="grid grid-cols-2 gap-3 mb-6">

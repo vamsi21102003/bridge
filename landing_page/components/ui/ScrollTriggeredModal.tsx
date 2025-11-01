@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { X } from 'lucide-react';
 
 // Types
-type Role = 'student' | 'employer' | 'institution';
+type Role = 'student' | 'institution';
 
 type SignInForm = {
   email: string;
@@ -37,7 +37,6 @@ const SOCIAL_PROVIDERS = [
 
 const ROLES = [
   { key: 'student' as const, label: 'Student', icon: '🎓' },
-  { key: 'employer' as const, label: 'Employer', icon: '💼' },
   { key: 'institution' as const, label: 'Institution', icon: '🏛️' }
 ];
 

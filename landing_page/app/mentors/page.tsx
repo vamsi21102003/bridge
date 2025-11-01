@@ -112,28 +112,7 @@ const MentorsPage: React.FC = () => {
       price: 900,
       availability: true,
     },
-    {
-      id: '9',
-      name: 'Ravi Agarwal',
-      title: 'Blockchain Developer',
-      company: 'Polygon',
-      expertise: ['Solidity', 'Web3', 'Smart Contracts', 'DeFi'],
-      rating: 5,
-      reviews: 45,
-      price: 1700,
-      availability: true,
-    },
-    {
-      id: '10',
-      name: 'Meera Nair',
-      title: 'Cybersecurity Expert',
-      company: 'Paytm',
-      expertise: ['Ethical Hacking', 'Network Security', 'Penetration Testing'],
-      rating: 5,
-      reviews: 67,
-      price: 1100,
-      availability: true,
-    },
+
   ];
 
   const filteredMentors = mockMentors.filter(mentor => {
@@ -401,7 +380,7 @@ const MentorsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* AI Buddy Section */}
+      {/* AI Mentor Section */}
       <AIBuddySection />
 
       {/* Upcoming Events */}

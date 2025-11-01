@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import EMPBriDGe Dashboard Styles */
-@import '../styles/empbridge-dashboard.css';
+
 
 @layer base {
   /* Only apply smooth scrolling - safe for integration */
@@ -444,48 +443,7 @@ BriDGe Dashboard Specific Animations */
   }
 }
 
-/* Hover effects for EMPBriDGe dashboard */
-.empbridge-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.empbridge-card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.empbridge-button-glow {
-  position: relative;
-  overflow: hidden;
-}
-
-.empbridge-button-glow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.empbridge-button-glow:hover::before {
-  left: 100%;
-}
-
-/* Floating animation for background elements */
-.empbridge-float-1 {
-  animation: float-1 6s ease-in-out infinite;
-}
-
-.empbridge-float-2 {
-  animation: float-2 8s ease-in-out infinite;
-}
-
-.empbridge-float-3 {
-  animation: float-3 10s ease-in-out infinite;
-}
 
 @keyframes float-1 {
   0%, 100% { transform: translateY(0px) rotate(0deg); }

@@ -21,7 +21,7 @@ import {
   Shield,
   Zap
 } from 'lucide-react';
-import { EMPBriDGeLogoMini } from '@/components/ui/EMPBriDGeLogo';
+
 
 interface NavbarProps {
   onProfileClick: () => void;
@@ -52,10 +52,10 @@ const Navbar: React.FC<NavbarProps> = ({ onProfileClick }) => {
     <nav className="sticky top-0 z-50 bg-slate-700 backdrop-blur-xl border-b border-slate-600/30 shadow-2xl relative overflow-hidden">
       {/* Enhanced Professional Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/8 rounded-full blur-xl empbridge-pulse-glow"></div>
-        <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-white/6 rounded-full blur-xl empbridge-pulse-glow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/4 rounded-full blur-2xl empbridge-float-professional"></div>
-        <div className="absolute top-1/4 right-1/3 w-12 h-12 bg-white/5 rounded-full blur-xl empbridge-float-delayed"></div>
+        <div className="absolute -top-10 -right-10 w-24 h-24 bg-white/8 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-white/6 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/4 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute top-1/4 right-1/3 w-12 h-12 bg-white/5 rounded-full blur-xl animate-float" style={{ animationDelay: '3s' }}></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -64,13 +64,13 @@ const Navbar: React.FC<NavbarProps> = ({ onProfileClick }) => {
           <div className="flex items-center space-x-8">
             <Link href={ROUTES.DASHBOARD} className="flex items-center space-x-3 group">
               <div className="relative">
-                <EMPBriDGeLogoMini animated={true} />
+                <Building2 className="w-8 h-8 text-white" />
                 {/* Sparkle effect */}
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-75"></div>
               </div>
               <div className="flex flex-col">
-                <div className="text-2xl font-bold text-white group-hover:scale-105 transition-transform duration-300 empbridge-text-shimmer">
-                  EMPBriDGe
+                <div className="text-2xl font-bold text-white group-hover:scale-105 transition-transform duration-300">
+                  BriDGe
                 </div>
                 <div className="flex items-center space-x-1 -mt-1">
                   <Shield className="w-3 h-3 text-white/70" />
@@ -86,9 +86,9 @@ const Navbar: React.FC<NavbarProps> = ({ onProfileClick }) => {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`empbridge-nav-link flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 group ${
+                    className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 group ${
                       isActive(item.href)
-                        ? 'bg-white/25 text-white shadow-lg backdrop-blur-sm transform scale-105 empbridge-button-glow'
+                        ? 'bg-white/25 text-white shadow-lg backdrop-blur-sm transform scale-105'
                         : 'text-white/80 hover:text-white hover:bg-white/15 hover:scale-105'
                     }`}
                   >

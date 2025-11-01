@@ -6,7 +6,6 @@ export const ROUTES = {
   APPLICANTS: '/dashboard/employer/applicants',
   FEEDBACK: '/dashboard/employer/feedback',
   STUDENT_DASHBOARD: '/dashboard/student',
-  STUDENT_FEEDBACK: '/dashboard/student/feedback',
 } as const
 
 export const COMPANY_INFO = {

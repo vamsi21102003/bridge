@@ -99,13 +99,10 @@ export default function FeedbackShowcase() {
             </div>
           </div>
           
-          <Link
-            href="/dashboard/student/feedback"
-            className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
-          >
-            <span className="font-medium">View All Stories</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-          </Link>
+          <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl opacity-50 cursor-not-allowed">
+            <span className="font-medium">Stories Coming Soon</span>
+            <ArrowRight className="w-4 h-4" />
+          </div>
         </div>
 
         {/* Featured Stories */}
@@ -183,13 +180,10 @@ export default function FeedbackShowcase() {
               </div>
 
               {/* Read More */}
-              <Link
-                href="/dashboard/student/feedback"
-                className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center space-x-1 group"
-              >
-                <span>Read full story</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
-              </Link>
+              <div className="text-gray-400 text-sm font-medium flex items-center space-x-1 cursor-not-allowed">
+                <span>Story preview only</span>
+                <ArrowRight className="w-3 h-3" />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -204,13 +198,10 @@ export default function FeedbackShowcase() {
           <p className="text-blue-100 mb-4">
             Inspire fellow BPUT students by sharing your journey and help them achieve their career goals
           </p>
-          <Link
-            href="/dashboard/student/feedback"
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-xl hover:bg-white/30 transition-all duration-200 font-medium"
-          >
-            <span>Share Your Story</span>
+          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-xl opacity-50 cursor-not-allowed">
+            <span>Feature Coming Soon</span>
             <Sparkles className="w-4 h-4" />
-          </Link>
+          </div>
         </div>
       </div>
     </div>

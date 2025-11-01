@@ -8,7 +8,7 @@ import AuthenticationForm from '@/components/auth/AuthenticationForm'
 
 interface ModalAuthData {
   mode: 'signin' | 'signup'
-  role: 'student' | 'employer' | 'institution'
+  role: 'student' | 'institution'
   email: string
   password: string
   fullName?: string
@@ -26,7 +26,7 @@ export default function AuthPage() {
   // Handle authentication submission
   const handleAuthSubmit = async (data: {
     mode: 'Sign Up' | 'Login'
-    userType: 'student' | 'employer' | 'university'
+    userType: 'student' | 'university'
     commonFields: {
       fullName: string
       email: string
@@ -48,9 +48,7 @@ export default function AuthPage() {
       document.cookie = `userType=${data.userType}; path=/; max-age=86400` // 24 hours
       
       // Redirect based on user type
-      if (data.userType === 'employer') {
-        router.push('/dashboard/employer')
-      } else if (data.userType === 'student') {
+      if (data.userType === 'student') {
         router.push('/dashboard/student')
       } else if (data.userType === 'university') {
         router.push('/university') // Redirect to full university website

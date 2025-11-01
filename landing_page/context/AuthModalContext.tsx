@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 interface AuthFormData {
   mode: 'signin' | 'signup'
-  role: 'student' | 'employer' | 'institution'
+  role: 'student' | 'institution'
   email: string
   password: string
   fullName?: string
