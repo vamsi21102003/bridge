@@ -9,6 +9,7 @@ import ProfileSidebar from '@/components/student/ProfileSidebar';
 import OpportunityCard from '@/components/student/OpportunityCard';
 import MentorCard from '@/components/student/MentorCard';
 import GameCard from '@/components/student/GameCard';
+import FeedbackShowcase from '@/components/student/FeedbackShowcase';
 import { useLanguage } from '@/context/student/LanguageContext';
 import { Opportunity, Mentor, Game } from '@/types/student';
 
@@ -719,6 +720,11 @@ const mockGames: Game[] = [
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Student Feedback Showcase Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <FeedbackShowcase />
       </section>
     </div>
   );
