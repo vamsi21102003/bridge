@@ -1,0 +1,266 @@
+/* AI Mentor Specific Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* AI Mentor Page Styles */
+.ai-mentor-page {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(-45deg, #6366F1, #A855F7, #EC4899, #F59E0B);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+  color: white;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glass Effect */
+.ai-mentor-page .glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* Neural Network Background */
+.ai-mentor-page .neural-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%);
+}
+
+/* Typing Indicator */
+.ai-mentor-page .typing-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #6366F1;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.ai-mentor-page .typing-indicator:nth-child(1) { animation-delay: -0.32s; }
+.ai-mentor-page .typing-indicator:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Chat Message Animation */
+.ai-mentor-page .chat-message {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Pulse Glow Animation */
+.ai-mentor-page .animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Dark Mode Styles */
+.dark .ai-mentor-page {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #e5e7eb;
+}
+
+.dark .ai-mentor-page .glass {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+}
+
+.dark .ai-mentor-page .neural-network {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(219, 39, 119, 0.2) 0%, transparent 50%);
+}
+
+.dark .ai-mentor-page .typing-indicator {
+  background-color: #3b82f6;
+}
+
+/* Smooth transitions for theme changes */
+.ai-mentor-page,
+.ai-mentor-page *,
+.ai-mentor-page *::before,
+.ai-mentor-page *::after {
+  transition: background-color 0.3s ease, 
+              border-color 0.3s ease, 
+              color 0.3s ease,
+              box-shadow 0.3s ease !important;
+}
+
+/* Enhanced text visibility */
+.ai-mentor-page .text-enhanced {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .ai-mentor-page .text-enhanced {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Ensure proper font rendering */
+.ai-mentor-page * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Chart container fixes */
+.ai-mentor-page .recharts-wrapper {
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Performance optimizations */
+.ai-mentor-page .glass {
+  contain: layout style;
+}
+
+.ai-mentor-page [class*="animate-"] {
+  will-change: transform, opacity;
+}
+/*
+ Tailwind Color Variables for AI Mentor */
+:root {
+  --primary: #6366F1;
+  --secondary: #A855F7;
+  --accent: #EC4899;
+}
+
+/* Primary, Secondary, Accent color classes */
+.from-primary {
+  --tw-gradient-from: var(--primary);
+  --tw-gradient-to: rgb(99 102 241 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-primary {
+  --tw-gradient-to: var(--primary);
+}
+
+.from-secondary {
+  --tw-gradient-from: var(--secondary);
+  --tw-gradient-to: rgb(168 85 247 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-secondary {
+  --tw-gradient-to: var(--secondary);
+}
+
+.from-accent {
+  --tw-gradient-from: var(--accent);
+  --tw-gradient-to: rgb(236 72 153 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-accent {
+  --tw-gradient-to: var(--accent);
+}
+
+.via-primary {
+  --tw-gradient-to: rgb(99 102 241 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--primary), var(--tw-gradient-to);
+}
+
+.via-secondary {
+  --tw-gradient-to: rgb(168 85 247 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--secondary), var(--tw-gradient-to);
+}
+
+.via-accent {
+  --tw-gradient-to: rgb(236 72 153 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--accent), var(--tw-gradient-to);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.ring-primary {
+  --tw-ring-color: var(--primary);
+}
+
+.ring-secondary {
+  --tw-ring-color: var(--secondary);
+}
+
+.ring-accent {
+  --tw-ring-color: var(--accent);
+}
+
+/* Focus ring colors */
+.focus\:ring-primary:focus {
+  --tw-ring-color: var(--primary);
+}
+
+.focus\:ring-secondary:focus {
+  --tw-ring-color: var(--secondary);
+}
+
+.focus\:ring-accent:focus {
+  --tw-ring-color: var(--accent);
+}
