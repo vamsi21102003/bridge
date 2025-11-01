@@ -10,6 +10,7 @@ import { AuthProvider } from '@/context/dashboard/AuthContext'
 import { GlobalProvider } from '@/context/dashboard/GlobalContext'
 import { LanguageProvider } from '@/context/student/LanguageContext'
 import { StudentAuthProvider } from '@/context/student/AuthContext'
+import { FloatingChatbotButton } from '@/components/ui/FloatingChatbotButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,6 +42,7 @@ export default function RootLayout({
                   <AuthProvider>
                     <div className="bridge-landing-page page-wrapper">
                       {children}
+                      <FloatingChatbotButton />
                     </div>
                   </AuthProvider>
                 </GlobalProvider>

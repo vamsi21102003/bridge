@@ -33,12 +33,13 @@ import {
   MessageSquare,
   ArrowRight,
   MapPin,
+  Bell,
   Landmark,
   Compass
 } from 'lucide-react';
 import EMPBriDGeLogo from '@/components/ui/EMPBriDGeLogo';
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
-import FloatingFeedbackWidget from '@/components/feedback/FloatingFeedbackWidget';
+
 import TestimonialCarousel from '@/components/feedback/TestimonialCarousel';
 
 export default function EmployerDashboardPage() {
@@ -99,67 +100,124 @@ export default function EmployerDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 relative overflow-hidden">
-      {/* Enhanced Animated Background */}
-      <AnimatedBackground variant="dashboard" />
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-sky-50 to-amber-50 relative overflow-hidden">
+      {/* Enhanced Professional Animated Background with STUBriDGe DNA */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Beautiful Professional Floating Bubbles with Warm Theme */}
+        <div className="absolute top-20 left-10 w-24 h-24 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-3xl opacity-20 empbridge-float-professional flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl">💼</div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl opacity-25 empbridge-float-delayed flex items-center justify-center text-2xl backdrop-blur-sm shadow-xl">📊</div>
+        <div className="absolute bottom-32 left-1/4 w-28 h-28 bg-gradient-to-br from-orange-300 to-amber-400 rounded-full opacity-20 empbridge-float-professional flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl">🎯</div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl opacity-18 empbridge-float-delayed flex items-center justify-center text-2xl backdrop-blur-sm shadow-xl">🚀</div>
+        <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-sky-300 to-cyan-400 rounded-3xl opacity-25 empbridge-float-professional flex items-center justify-center text-3xl backdrop-blur-sm shadow-2xl">⭐</div>
+        
+        {/* Warm-themed Secondary Bubbles */}
+        <div className="absolute top-60 left-1/2 w-16 h-16 bg-gradient-to-br from-yellow-300 to-amber-400 rounded-full opacity-20 animate-bounce flex items-center justify-center text-xl backdrop-blur-sm">💡</div>
+        <div className="absolute top-80 right-1/4 w-16 h-16 bg-gradient-to-br from-sky-300 to-blue-400 rounded-xl opacity-20 animate-pulse flex items-center justify-center text-lg backdrop-blur-sm">📈</div>
+        <div className="absolute bottom-40 left-1/3 w-20 h-20 bg-gradient-to-br from-amber-300 to-yellow-400 rounded-2xl opacity-20 empbridge-icon-spin flex items-center justify-center text-xl backdrop-blur-sm" style={{ animationDuration: '6s' }}>🌟</div>
+        <div className="absolute top-1/4 left-3/4 w-20 h-20 bg-gradient-to-br from-orange-300 to-amber-400 rounded-2xl opacity-20 empbridge-float-professional flex items-center justify-center text-xl backdrop-blur-sm shadow-xl">🏆</div>
+        <div className="absolute bottom-60 right-1/3 w-16 h-16 bg-gradient-to-br from-sky-200 to-blue-300 rounded-full opacity-20 animate-bounce flex items-center justify-center text-lg backdrop-blur-sm">🎨</div>
+        
+        {/* Professional Floating Particle Effects */}
+        <div className="absolute top-10 left-1/2 w-4 h-4 bg-blue-400 rounded-full animate-ping opacity-60"></div>
+        <div className="absolute top-32 right-1/3 w-3 h-3 bg-purple-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-60 left-1/4 w-4 h-4 bg-green-400 rounded-full animate-ping opacity-60" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-10 right-1/2 w-3 h-3 bg-pink-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/5 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-60" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-3/4 right-1/5 w-4 h-4 bg-indigo-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '2.5s' }}></div>
+        
+        {/* Beautiful Warm Gradient Orbs for Depth */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-yellow-200/12 to-amber-200/10 rounded-full blur-3xl empbridge-float-professional"></div>
+        <div className="absolute top-20 -right-20 w-80 h-80 bg-gradient-to-r from-sky-200/10 to-blue-200/8 rounded-full blur-3xl empbridge-float-delayed"></div>
+        <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-gradient-to-r from-amber-200/8 to-orange-200/6 rounded-full blur-3xl empbridge-float-professional"></div>
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-gradient-to-r from-yellow-100/6 to-sky-100/5 rounded-full blur-3xl empbridge-float-delayed"></div>
+        
+        {/* Professional Network Connection Lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-8" viewBox="0 0 1000 600">
+          <defs>
+            <linearGradient id="empbridgeNetworkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#667eea" stopOpacity="0.4"/>
+              <stop offset="50%" stopColor="#764ba2" stopOpacity="0.3"/>
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.4"/>
+            </linearGradient>
+          </defs>
+          <g className="animate-pulse">
+            <line x1="150" y1="100" x2="350" y2="80" stroke="url(#empbridgeNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="350" y1="80" x2="550" y2="150" stroke="url(#empbridgeNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="550" y1="150" x2="750" y2="120" stroke="url(#empbridgeNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="250" y1="300" x2="450" y2="350" stroke="url(#empbridgeNetworkGradient)" strokeWidth="1.5"/>
+            <line x1="450" y1="350" x2="650" y2="300" stroke="url(#empbridgeNetworkGradient)" strokeWidth="1.5"/>
+          </g>
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        {/* Hero Section */}
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Left Side - Brand and Description */}
-          <div className="flex flex-col justify-center space-y-6">
-            <div className="space-y-4">
-              {/* Enhanced Logo Section */}
-              <div className="mb-8">
-                <EMPBriDGeLogo 
-                  size="xl" 
-                  animated={true} 
-                  showText={true} 
-                  variant="gradient" 
-                />
-                <div className="flex items-center space-x-2 mt-3 ml-2">
-                  <Shield className="w-4 h-4 text-purple-600" />
-                  <span className="text-sm text-purple-600 font-medium">Trusted Employer Platform</span>
-                  <div className="flex items-center space-x-1 ml-4">
-                    <Star className="w-4 h-4 text-yellow-500" />
-                    <span className="text-sm text-gray-600">4.9/5 Rating</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <Briefcase className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-xl text-gray-700 font-semibold">
-                    Advanced Employer Dashboard
-                  </p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <Target className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    Connect with top talent and manage your recruitment pipeline
-                  </p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    AI-powered matching and analytics for better hiring decisions
-                  </p>
+        {/* Enhanced Professional Hero Section with Beautiful Layout */}
+        <div className={`relative mb-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* Beautiful Glass Background with Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-100/30 via-sky-100/20 to-amber-100/30 rounded-3xl backdrop-blur-sm shadow-2xl -z-10"></div>
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-300/20 via-sky-300/15 to-amber-300/20 p-[2px] -z-10">
+            <div className="w-full h-full bg-gradient-to-r from-yellow-50/80 via-sky-50/60 to-amber-50/80 rounded-3xl backdrop-blur-sm"></div>
+          </div>
+          
+          {/* Beautiful Decorative Elements */}
+          <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-yellow-200 to-amber-300 rounded-2xl opacity-15 empbridge-float-professional flex items-center justify-center text-2xl">✨</div>
+          <div className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-sky-200 to-blue-300 rounded-full opacity-12 empbridge-float-delayed flex items-center justify-center text-xl">🌟</div>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-amber-200 to-orange-300 rounded-xl opacity-10 animate-pulse flex items-center justify-center text-lg">💫</div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+          {/* Left Column - Dashboard Overview & Brand */}
+          <div className="flex flex-col space-y-6">
+            {/* Enhanced Logo Section */}
+            <div className="mb-8">
+              <EMPBriDGeLogo 
+                size="xl" 
+                animated={true} 
+                showText={true} 
+                variant="gradient" 
+              />
+              <div className="flex items-center space-x-2 mt-3 ml-2">
+                <Shield className="w-4 h-4 text-purple-600" />
+                <span className="text-sm text-purple-600 font-medium">Trusted Employer Platform</span>
+                <div className="flex items-center space-x-1 ml-4">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  <span className="text-sm text-gray-600">4.9/5 Rating</span>
                 </div>
               </div>
             </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <Briefcase className="w-4 h-4 text-white" />
+                </div>
+                <p className="text-xl text-gray-700 font-semibold">
+                  Advanced Employer Dashboard
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <Target className="w-4 h-4 text-white" />
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Connect with top talent and manage your recruitment pipeline
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-white" />
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  AI-powered matching and analytics for better hiring decisions
+                </p>
+              </div>
+            </div>
 
-            {/* Enhanced Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            {/* Enhanced Beautiful Professional Stats Grid */}
+            <div className="grid grid-cols-2 gap-6 mt-8">
               <button 
                 onClick={() => handleStatsClick('Trusted Companies')}
-                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 group text-left w-full"
+                className="empbridge-metric-card empbridge-card-reveal group text-left w-full hover:empbridge-pulse-glow"
+                style={{ animationDelay: '0.1s' }}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -170,13 +228,14 @@ export default function EmployerDashboardPage() {
                     +12%
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-purple-600 mb-1">500+</div>
+                <div className="text-3xl font-bold empbridge-gradient-text-primary mb-1 empbridge-metric-counter">500+</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Trusted Companies</div>
               </button>
               
               <button 
                 onClick={() => handleStatsClick('Active Candidates')}
-                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 group text-left w-full"
+                className="empbridge-metric-card empbridge-card-reveal group text-left w-full hover:empbridge-pulse-glow"
+                style={{ animationDelay: '0.2s' }}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -187,13 +246,14 @@ export default function EmployerDashboardPage() {
                     +25%
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-blue-600 mb-1">10K+</div>
+                <div className="text-3xl font-bold empbridge-gradient-text-analytics mb-1 empbridge-metric-counter" style={{ animationDelay: '0.1s' }}>10K+</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Active Candidates</div>
               </button>
               
               <button 
                 onClick={() => handleStatsClick('Jobs Posted')}
-                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 group text-left w-full"
+                className="empbridge-metric-card empbridge-card-reveal group text-left w-full hover:empbridge-pulse-glow"
+                style={{ animationDelay: '0.3s' }}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -204,13 +264,14 @@ export default function EmployerDashboardPage() {
                     +18%
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-green-600 mb-1">2K+</div>
+                <div className="text-3xl font-bold empbridge-gradient-text-success mb-1 empbridge-metric-counter" style={{ animationDelay: '0.2s' }}>2K+</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Jobs Posted</div>
               </button>
               
               <button 
                 onClick={() => handleStatsClick('Success Rate')}
-                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 group text-left w-full"
+                className="empbridge-metric-card empbridge-card-reveal group text-left w-full hover:empbridge-pulse-glow"
+                style={{ animationDelay: '0.4s' }}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -221,16 +282,191 @@ export default function EmployerDashboardPage() {
                     Top Rated
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-orange-600 mb-1">95%</div>
+                <div className="text-3xl font-bold text-orange-600 mb-1 empbridge-metric-counter" style={{ animationDelay: '0.3s' }}>95%</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Success Rate</div>
               </button>
             </div>
+            
+            {/* AI-Powered Hiring Insights Widget */}
+            <div className="empbridge-card-primary empbridge-card-reveal relative overflow-hidden group" style={{ animationDelay: '0.2s' }}>
+              {/* Animated Background Elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/3 to-pink-500/5 rounded-2xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/8 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-400/8 to-orange-400/6 rounded-full translate-y-12 -translate-x-12 empbridge-float-professional"></div>
+              
+              {/* Floating AI Particles */}
+              <div className="absolute top-4 left-4 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-60"></div>
+              <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '0.5s' }}></div>
+              <div className="absolute bottom-6 left-6 w-2.5 h-2.5 bg-pink-400 rounded-full animate-ping opacity-70" style={{ animationDelay: '1s' }}></div>
+              
+              <div className="relative z-10">
+                {/* AI Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="relative">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-xl flex items-center justify-center shadow-xl empbridge-pulse-glow">
+                        <Zap className="w-6 h-6 text-white animate-pulse" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce">
+                        <Sparkles className="w-2 h-2 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold empbridge-gradient-text-primary">AI Hiring Assistant</h3>
+                      <p className="text-sm text-gray-600">Smart insights for better hiring</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-green-600 font-medium">Live</span>
+                  </div>
+                </div>
+                
+                {/* AI Recommendations */}
+                <div className="space-y-4 mb-6">
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-200/50 empbridge-card-reveal" style={{ animationDelay: '0.3s' }}>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mt-0.5">
+                        <Target className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-800 text-sm mb-1">Perfect Match Found!</h4>
+                        <p className="text-xs text-gray-600 mb-2">3 candidates match your Senior Developer role with 95% compatibility</p>
+                        <button className="text-xs bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 transition-colors">
+                          View Matches
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200/50 empbridge-card-reveal" style={{ animationDelay: '0.4s' }}>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mt-0.5">
+                        <TrendingUp className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-800 text-sm mb-1">Hiring Trend Alert</h4>
+                        <p className="text-xs text-gray-600 mb-2">React developers are 40% more active this week. Great time to post!</p>
+                        <button className="text-xs bg-purple-500 text-white px-3 py-1 rounded-full hover:bg-purple-600 transition-colors">
+                          Post Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* AI Stats */}
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  <div className="text-center p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200/50">
+                    <div className="text-lg font-bold empbridge-gradient-text-success empbridge-metric-counter">95%</div>
+                    <div className="text-xs text-gray-600">Match Rate</div>
+                  </div>
+                  <div className="text-center p-3 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-lg border border-orange-200/50">
+                    <div className="text-lg font-bold text-orange-600 empbridge-metric-counter" style={{ animationDelay: '0.1s' }}>2.3x</div>
+                    <div className="text-xs text-gray-600">Faster Hiring</div>
+                  </div>
+                  <div className="text-center p-3 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg border border-indigo-200/50">
+                    <div className="text-lg font-bold empbridge-gradient-text-analytics empbridge-metric-counter" style={{ animationDelay: '0.2s' }}>24/7</div>
+                    <div className="text-xs text-gray-600">AI Active</div>
+                  </div>
+                </div>
+                
+                {/* AI Action Button */}
+                <button className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-3 px-4 rounded-xl font-semibold hover:scale-105 transition-all duration-300 empbridge-button-glow flex items-center justify-center space-x-2">
+                  <Sparkles className="w-4 h-4 animate-spin" />
+                  <span>Activate AI Hiring Mode</span>
+                  <Rocket className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Smart Talent Pipeline Widget */}
+            <div className="empbridge-card-warm empbridge-card-reveal relative overflow-hidden group" style={{ animationDelay: '0.5s' }}>
+              {/* Animated Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-orange-400/3 to-red-400/5 rounded-2xl"></div>
+              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-yellow-300/15 to-amber-400/10 rounded-full -translate-y-10 -translate-x-10 empbridge-float-delayed"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg empbridge-warm-glow">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900">Talent Pipeline</h3>
+                      <p className="text-sm text-gray-600">Live candidate flow</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-orange-600 font-medium">Active</span>
+                  </div>
+                </div>
+                
+                {/* Pipeline Visualization */}
+                <div className="space-y-3 mb-5">
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200/50 empbridge-card-reveal" style={{ animationDelay: '0.6s' }}>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                        <FileText className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-800">Applications</p>
+                        <p className="text-xs text-gray-600">New submissions</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold empbridge-gradient-text-analytics empbridge-metric-counter">47</div>
+                      <div className="text-xs text-green-600 font-medium">+12 today</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200/50 empbridge-card-reveal" style={{ animationDelay: '0.7s' }}>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                        <UserCheck className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-800">Interviews</p>
+                        <p className="text-xs text-gray-600">Scheduled</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold text-purple-600 empbridge-metric-counter" style={{ animationDelay: '0.1s' }}>12</div>
+                      <div className="text-xs text-purple-600 font-medium">This week</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200/50 empbridge-card-reveal" style={{ animationDelay: '0.8s' }}>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                        <Award className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-gray-800">Offers</p>
+                        <p className="text-xs text-gray-600">Pending</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-lg font-bold empbridge-gradient-text-success empbridge-metric-counter" style={{ animationDelay: '0.2s' }}>5</div>
+                      <div className="text-xs text-green-600 font-medium">85% accept rate</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Quick Action */}
+                <button className="w-full bg-gradient-to-r from-amber-400 to-orange-500 text-white py-2.5 px-4 rounded-lg font-medium hover:scale-105 transition-all duration-300 empbridge-warm-glow flex items-center justify-center space-x-2">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>View Full Pipeline</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Right Side - Action Cards */}
+          {/* Right Column - Primary Action Cards */}
           <div className="space-y-6">
-            {/* Post New Job Card */}
-            <div className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 rounded-3xl p-8 text-white shadow-purple hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+            {/* Enhanced Post New Job Card */}
+            <div className="empbridge-gradient-bg-corporate rounded-3xl p-8 text-white shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3 relative overflow-hidden empbridge-card-reveal empbridge-pulse-glow" style={{ animationDelay: '0.5s' }}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
               
@@ -261,15 +497,15 @@ export default function EmployerDashboardPage() {
               
               <button
                 onClick={() => setShowJobForm(!showJobForm)}
-                className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-4 px-6 font-medium transition-all duration-200 flex items-center justify-center space-x-2 relative z-10 group"
+                className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl py-4 px-6 font-medium transition-all duration-300 flex items-center justify-center space-x-2 relative z-10 group empbridge-button-glow hover:scale-105"
               >
                 <span>Get Started</span>
                 <Rocket className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </div>
 
-            {/* Premium Features Card */}
-            <div className="bg-white rounded-3xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+            {/* Enhanced Premium Features Card */}
+            <div className="empbridge-card-primary empbridge-card-reveal relative overflow-hidden group" style={{ animationDelay: '0.6s' }}>
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-400/20 to-orange-500/20 rounded-full -translate-y-10 translate-x-10"></div>
               
               <div className="flex items-center justify-between mb-4">
@@ -312,7 +548,7 @@ export default function EmployerDashboardPage() {
               {!user?.isSubscribed && (
                 <button 
                   onClick={handleUpgradeClick}
-                  className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-xl py-3 px-6 font-medium hover:from-orange-500 hover:to-orange-600 transition-all duration-200 flex items-center justify-center space-x-2 group"
+                  className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-xl py-3 px-6 font-medium hover:from-orange-500 hover:to-orange-600 transition-all duration-300 flex items-center justify-center space-x-2 group empbridge-button-glow hover:scale-105"
                 >
                   <span>Upgrade Now</span>
                   <Crown className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
@@ -320,8 +556,8 @@ export default function EmployerDashboardPage() {
               )}
             </div>
 
-            {/* Enhanced Quick Access Grid */}
-            <div className="bg-white rounded-3xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300">
+            {/* Enhanced Professional Quick Access Grid */}
+            <div className="empbridge-card-primary empbridge-card-reveal" style={{ animationDelay: '0.7s' }}>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
                   <Zap className="w-4 h-4 text-white" />
@@ -389,6 +625,7 @@ export default function EmployerDashboardPage() {
               </div>
             </div>
           </div>
+          </div>
         </div>
 
         {/* Job Form Modal */}
@@ -403,12 +640,12 @@ export default function EmployerDashboardPage() {
           </div>
         )}
 
-        {/* Enhanced Platform Features Section */}
+        {/* Enhanced Professional Platform Features Section */}
         <div className={`mt-16 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Enhanced Header */}
+          {/* Enhanced Professional Header */}
           <div className="text-center mb-16 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-100/50 via-blue-100/50 to-green-100/50 rounded-3xl blur-3xl -z-10"></div>
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-lg">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-100/50 via-purple-100/50 to-pink-100/50 rounded-3xl blur-3xl -z-10"></div>
+            <div className="relative empbridge-glass-card p-8 empbridge-card-reveal" style={{ animationDelay: '0.8s' }}>
               <div className="flex items-center justify-center space-x-4 mb-6">
                 <div className="relative">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-blue-500 to-green-500 rounded-2xl flex items-center justify-center animate-pulse">
@@ -419,7 +656,7 @@ export default function EmployerDashboardPage() {
                   </div>
                 </div>
                 <div className="text-left">
-                  <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
+                  <h2 className="text-4xl font-bold empbridge-gradient-text-primary empbridge-text-shimmer">
                     Platform Features
                   </h2>
                   <div className="flex items-center space-x-2 mt-2">
@@ -450,19 +687,20 @@ export default function EmployerDashboardPage() {
 
           {/* Enhanced Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {/* Smart Matching Feature */}
+            {/* Enhanced Smart Matching Feature */}
             <button 
               onClick={() => handleFeatureClick('Smart Matching')}
-              className="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 shadow-card hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 group text-left w-full border border-blue-200/50 overflow-hidden"
+              className="relative empbridge-card-analytics empbridge-card-reveal group text-left w-full overflow-hidden hover:empbridge-pulse-glow"
+              style={{ animationDelay: '0.9s' }}
             >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-600/10 rounded-3xl"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
+              {/* Enhanced Background Pattern */}
+              <div className="absolute inset-0 empbridge-analytics-glow rounded-3xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/15 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500 empbridge-pulse-glow"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
-                    <Target className="w-10 h-10 text-white" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg empbridge-pulse-glow">
+                    <Target className="w-10 h-10 text-white empbridge-icon-spin" />
                   </div>
                   <div className="flex items-center space-x-1">
                     <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
@@ -506,10 +744,11 @@ export default function EmployerDashboardPage() {
               </div>
             </button>
 
-            {/* Advanced Analytics Feature */}
+            {/* Enhanced Advanced Analytics Feature */}
             <button 
               onClick={() => handleFeatureClick('Advanced Analytics')}
-              className="relative bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 shadow-card hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 group text-left w-full border border-green-200/50 overflow-hidden"
+              className="relative empbridge-card-primary empbridge-card-reveal group text-left w-full overflow-hidden hover:empbridge-pulse-glow"
+              style={{ animationDelay: '1.0s' }}
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-green-600/10 rounded-3xl"></div>
@@ -564,10 +803,11 @@ export default function EmployerDashboardPage() {
               </div>
             </button>
 
-            {/* Global Reach Feature */}
+            {/* Enhanced Global Reach Feature */}
             <button 
               onClick={() => handleFeatureClick('Global Reach')}
-              className="relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-8 shadow-card hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 group text-left w-full border border-purple-200/50 overflow-hidden"
+              className="relative empbridge-card-analytics empbridge-card-reveal group text-left w-full overflow-hidden hover:empbridge-pulse-glow"
+              style={{ animationDelay: '1.1s' }}
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-600/10 rounded-3xl"></div>
@@ -894,27 +1134,7 @@ export default function EmployerDashboardPage() {
         </div>
       </div>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <div className="relative group">
-          <button
-            onClick={() => setShowJobForm(true)}
-            className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group-hover:scale-110 empbridge-button-glow"
-          >
-            <Sparkles className="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
-          </button>
-          
-          {/* Tooltip */}
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-            Post New Job
-            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-          </div>
-          
-          {/* Pulse rings */}
-          <div className="absolute inset-0 rounded-full bg-purple-500 opacity-20 animate-ping"></div>
-          <div className="absolute inset-0 rounded-full bg-purple-500 opacity-10 animate-ping" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-      </div>
+
 
       {/* Dynamic Notification Toast */}
       {showNotification && (
@@ -986,12 +1206,7 @@ export default function EmployerDashboardPage() {
         </div>
       )}
 
-      {/* Floating Feedback Widget */}
-      <FloatingFeedbackWidget 
-        onSubmit={(feedback) => {
-          showToast('Thank you for your feedback! It helps us improve our platform.', 'success');
-        }}
-      />
+
 
       {/* Upgrade Modal */}
       {showUpgradeModal && (

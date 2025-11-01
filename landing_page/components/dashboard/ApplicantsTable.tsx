@@ -23,6 +23,7 @@ const ApplicantsTable: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'new' | 'reviewed' | 'interview' | 'hired' | 'rejected'>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [showMessageModal, setShowMessageModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const [selectedApplicant, setSelectedApplicant] = useState<any>(null);
 
   const mockApplicants = [
@@ -42,7 +43,23 @@ const ApplicantsTable: React.FC = () => {
       profileImage: null,
       expectedSalary: '₹18-25 LPA',
       currentCompany: 'TechCorp India',
-      education: 'B.Tech CSE, IIT Delhi'
+      education: 'B.Tech CSE, IIT Delhi',
+      bio: 'Passionate full-stack developer with 5+ years of experience building scalable web applications. Expert in React ecosystem and cloud technologies.',
+      workHistory: [
+        { company: 'TechCorp India', role: 'Senior Software Engineer', duration: '2022 - Present', description: 'Leading a team of 5 developers, architecting microservices, and implementing CI/CD pipelines.' },
+        { company: 'StartupXYZ', role: 'Full Stack Developer', duration: '2020 - 2022', description: 'Built the entire frontend and backend for the company\'s main product using React and Node.js.' },
+        { company: 'WebSolutions', role: 'Junior Developer', duration: '2019 - 2020', description: 'Developed responsive websites and learned modern web development practices.' }
+      ],
+      projects: [
+        { name: 'E-commerce Platform', tech: 'React, Node.js, MongoDB', description: 'Built a full-featured e-commerce platform with payment integration and admin dashboard.' },
+        { name: 'Task Management App', tech: 'TypeScript, Express, PostgreSQL', description: 'Developed a collaborative task management application with real-time updates.' }
+      ],
+      certifications: ['AWS Certified Developer', 'React Professional Certificate', 'MongoDB Certified Developer'],
+      languages: ['English (Fluent)', 'Hindi (Native)', 'Kannada (Conversational)'],
+      availability: 'Available to join in 2 weeks',
+      linkedIn: 'linkedin.com/in/aarav-sharma',
+      github: 'github.com/aarav-sharma',
+      portfolio: 'aaravsharma.dev'
     },
     {
       id: 2,
@@ -196,9 +213,8 @@ const ApplicantsTable: React.FC = () => {
   };
 
   const handleViewProfile = (applicant: any) => {
-    // Mock profile view
-    console.log(`Viewing profile for ${applicant.name}`);
-    alert(`Opening ${applicant.name}'s detailed profile...`);
+    setSelectedApplicant(applicant);
+    setShowProfileModal(true);
   };
 
   return (
@@ -264,18 +280,25 @@ const ApplicantsTable: React.FC = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filteredApplicants.map((applicant) => (
+          {filteredApplicants.map((applicant, index) => (
             <div
               key={applicant.id}
-              className="bg-white rounded-3xl shadow-card hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+              className="bg-white rounded-3xl shadow-card hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 overflow-hidden group animate-fade-in"
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                animation: `fadeInUp 0.6s ease-out ${index * 150}ms both`
+              }}
             >
               {/* Card Header */}
-              <div className="relative bg-gradient-to-br from-purple-500 to-blue-600 p-6 text-white">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
+              <div className="relative bg-gradient-to-br from-purple-500 to-blue-600 p-6 text-white overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/5 rounded-full animate-pulse"></div>
+                <div className="absolute top-8 right-8 w-4 h-4 bg-white/10 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 bg-white/5 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                         <span className="text-2xl font-bold text-white">
                           {applicant.name.split(' ').map(n => n[0]).join('')}
                         </span>
@@ -291,8 +314,10 @@ const ApplicantsTable: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(applicant.status)}`}>
-                    {getStatusIcon(applicant.status)}
+                  <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(applicant.status)} group-hover:scale-105 transition-transform duration-300`}>
+                    <div className="animate-pulse">
+                      {getStatusIcon(applicant.status)}
+                    </div>
                     <span>{applicant.status.charAt(0).toUpperCase() + applicant.status.slice(1)}</span>
                   </div>
                 </div>
@@ -335,7 +360,10 @@ const ApplicantsTable: React.FC = () => {
                     {applicant.skills.slice(0, 3).map((skill, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 text-xs rounded-full font-medium"
+                        className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 text-xs rounded-full font-medium hover:scale-110 hover:shadow-md transition-all duration-300 cursor-default"
+                        style={{ 
+                          animation: `slideInLeft 0.5s ease-out ${index * 100}ms both`
+                        }}
                       >
                         {skill}
                       </span>
@@ -350,12 +378,12 @@ const ApplicantsTable: React.FC = () => {
 
                 {/* Experience & Salary */}
                 <div className="mb-6 grid grid-cols-2 gap-4">
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <div className="text-lg font-bold text-gray-900">{applicant.experience}</div>
+                  <div className="text-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 group-hover:scale-105">
+                    <div className="text-lg font-bold text-gray-900 animate-pulse">{applicant.experience}</div>
                     <div className="text-xs text-gray-500">Experience</div>
                   </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <div className="text-sm font-bold text-green-600">{applicant.expectedSalary}</div>
+                  <div className="text-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 group-hover:scale-105">
+                    <div className="text-sm font-bold text-green-600 animate-pulse">{applicant.expectedSalary}</div>
                     <div className="text-xs text-gray-500">Expected</div>
                   </div>
                 </div>
@@ -366,17 +394,17 @@ const ApplicantsTable: React.FC = () => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleViewProfile(applicant)}
-                      className="flex-1 flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      className="flex-1 flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
                     >
-                      <Eye className="w-4 h-4" />
+                      <Eye className="w-4 h-4 animate-pulse" />
                       <span className="font-medium">View Profile</span>
                     </button>
                     <button
                       onClick={() => handleDownloadResume(applicant)}
-                      className="flex items-center justify-center px-4 py-3 bg-green-100 text-green-700 rounded-xl hover:bg-green-200 transition-all duration-200"
+                      className="flex items-center justify-center px-4 py-3 bg-green-100 text-green-700 rounded-xl hover:bg-green-200 transition-all duration-300 hover:scale-110 hover:rotate-3"
                       title="Download Resume"
                     >
-                      <Download className="w-4 h-4" />
+                      <Download className="w-4 h-4 hover:animate-bounce" />
                     </button>
                   </div>
 
@@ -484,6 +512,237 @@ const ApplicantsTable: React.FC = () => {
               >
                 Cancel
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Profile Modal */}
+      {showProfileModal && selectedApplicant && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Profile Header */}
+            <div className="relative bg-gradient-to-br from-purple-500 to-blue-600 p-8 text-white">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/5 rounded-full animate-pulse"></div>
+              <div className="absolute top-8 right-8 w-4 h-4 bg-white/10 rounded-full animate-bounce"></div>
+              
+              <div className="relative z-10 flex items-start justify-between">
+                <div className="flex items-center space-x-6">
+                  <div className="w-24 h-24 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-3xl font-bold text-white">
+                      {selectedApplicant.name.split(' ').map((n: string) => n[0]).join('')}
+                    </span>
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold mb-2">{selectedApplicant.name}</h2>
+                    <p className="text-purple-100 text-lg mb-1">{selectedApplicant.jobTitle}</p>
+                    <p className="text-purple-200 text-sm">{selectedApplicant.currentCompany}</p>
+                    <div className="flex items-center space-x-4 mt-3">
+                      <div className="flex items-center space-x-1">
+                        <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                        <span className="text-lg font-semibold">{selectedApplicant.rating}</span>
+                      </div>
+                      <div className={`inline-flex items-center space-x-2 px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(selectedApplicant.status)}`}>
+                        {getStatusIcon(selectedApplicant.status)}
+                        <span>{selectedApplicant.status.charAt(0).toUpperCase() + selectedApplicant.status.slice(1)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowProfileModal(false)}
+                  className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200"
+                >
+                  <UserX className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+
+            {/* Profile Content */}
+            <div className="p-8 space-y-8">
+              {/* Contact & Basic Info */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <Mail className="w-5 h-5 text-gray-500" />
+                      <span className="text-gray-700">{selectedApplicant.email}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Phone className="w-5 h-5 text-gray-500" />
+                      <span className="text-gray-700">{selectedApplicant.phone}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <MapPin className="w-5 h-5 text-gray-500" />
+                      <span className="text-gray-700">{selectedApplicant.location}</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Calendar className="w-5 h-5 text-gray-500" />
+                      <span className="text-gray-700">Applied {new Date(selectedApplicant.appliedDate).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Details</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <span className="text-gray-600">Experience</span>
+                      <span className="font-semibold text-gray-900">{selectedApplicant.experience}</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <span className="text-gray-600">Expected Salary</span>
+                      <span className="font-semibold text-green-600">{selectedApplicant.expectedSalary}</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <span className="text-gray-600">Education</span>
+                      <span className="font-semibold text-gray-900">{selectedApplicant.education}</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <span className="text-gray-600">Availability</span>
+                      <span className="font-semibold text-blue-600">{selectedApplicant.availability || 'Immediate'}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              {selectedApplicant.bio && (
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">About</h3>
+                  <p className="text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-xl">{selectedApplicant.bio}</p>
+                </div>
+              )}
+
+              {/* Skills */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Skills & Technologies</h3>
+                <div className="flex flex-wrap gap-3">
+                  {selectedApplicant.skills.map((skill: string, index: number) => (
+                    <span
+                      key={index}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-xl font-medium hover:scale-105 transition-transform duration-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Work History */}
+              {selectedApplicant.workHistory && (
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Work Experience</h3>
+                  <div className="space-y-4">
+                    {selectedApplicant.workHistory.map((work: any, index: number) => (
+                      <div key={index} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow duration-200">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <h4 className="font-semibold text-gray-900">{work.role}</h4>
+                            <p className="text-purple-600 font-medium">{work.company}</p>
+                          </div>
+                          <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{work.duration}</span>
+                        </div>
+                        <p className="text-gray-700 text-sm">{work.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Projects */}
+              {selectedApplicant.projects && (
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Key Projects</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {selectedApplicant.projects.map((project: any, index: number) => (
+                      <div key={index} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow duration-200">
+                        <h4 className="font-semibold text-gray-900 mb-2">{project.name}</h4>
+                        <p className="text-sm text-purple-600 font-medium mb-2">{project.tech}</p>
+                        <p className="text-gray-700 text-sm">{project.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Certifications & Links */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {selectedApplicant.certifications && (
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Certifications</h3>
+                    <div className="space-y-2">
+                      {selectedApplicant.certifications.map((cert: string, index: number) => (
+                        <div key={index} className="flex items-center space-x-3 p-3 bg-green-50 rounded-xl">
+                          <Award className="w-5 h-5 text-green-600" />
+                          <span className="text-gray-700">{cert}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Links</h3>
+                  <div className="space-y-3">
+                    {selectedApplicant.linkedIn && (
+                      <a href={`https://${selectedApplicant.linkedIn}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
+                        <div className="w-5 h-5 bg-blue-600 rounded"></div>
+                        <span className="text-blue-700 font-medium">LinkedIn Profile</span>
+                      </a>
+                    )}
+                    {selectedApplicant.github && (
+                      <a href={`https://${selectedApplicant.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <div className="w-5 h-5 bg-gray-800 rounded"></div>
+                        <span className="text-gray-700 font-medium">GitHub Profile</span>
+                      </a>
+                    )}
+                    {selectedApplicant.portfolio && (
+                      <a href={`https://${selectedApplicant.portfolio}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors">
+                        <div className="w-5 h-5 bg-purple-600 rounded"></div>
+                        <span className="text-purple-700 font-medium">Portfolio Website</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => handleDownloadResume(selectedApplicant)}
+                  className="flex-1 flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <Download className="w-5 h-5" />
+                  <span className="font-medium">Download Resume</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowProfileModal(false);
+                    handleSendMessage(selectedApplicant);
+                  }}
+                  className="flex-1 flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span className="font-medium">Send Message</span>
+                </button>
+                {(selectedApplicant.status === 'new' || selectedApplicant.status === 'reviewed') && (
+                  <>
+                    <button
+                      onClick={() => {
+                        handleStatusChange(selectedApplicant.id, 'interview');
+                        setShowProfileModal(false);
+                      }}
+                      className="flex-1 flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                    >
+                      <UserCheck className="w-5 h-5" />
+                      <span className="font-medium">Shortlist</span>
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
