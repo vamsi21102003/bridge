@@ -2,8 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Mic, Plus, Bot, User } from 'lucide-react';
+import { Send, Mic, Plus, Bot, User, Volume2, VolumeX, Pause, Play } from 'lucide-react';
 import { quickPrompts, aiResponses } from '../utils/mockData';
+import { useTextToSpeech } from '../../../hooks/useTextToSpeech';
+import { useSpeechToText } from '../../../hooks/useSpeechToText';
 
 export default function ChatAssistant() {
   const [messages, setMessages] = useState([
@@ -17,7 +19,27 @@ export default function ChatAssistant() {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [speakingMessageId, setSpeakingMessageId] = useState(null);
   const messagesEndRef = useRef(null);
+  
+  const { speak, stop, pause, resume, isSpeaking, isPaused, isSupported } = useTextToSpeech();
+  
+  const { 
+    startListening, 
+    stopListening, 
+    isListening, 
+    transcript, 
+    isSupported: isSpeechRecognitionSupported 
+  } = useSpeechToText(
+    (finalTranscript) => {
+      // When speech recognition completes, set the input value
+      setInputValue(finalTranscript);
+      stopListening();
+    },
+    (error) => {
+      console.error('Speech recognition error:', error);
+    }
+  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -26,6 +48,17 @@ export default function ChatAssistant() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Auto-speak the initial welcome message
+  useEffect(() => {
+    if (isSupported && messages.length === 1) {
+      const welcomeMessage = messages[0];
+      setTimeout(() => {
+        setSpeakingMessageId(welcomeMessage.id);
+        speak(welcomeMessage.content);
+      }, 1000); // Delay to let the component fully load
+    }
+  }, [isSupported, speak]);
 
   const handleSendMessage = async (content = inputValue) => {
     if (!content.trim()) return;
@@ -64,7 +97,17 @@ export default function ChatAssistant() {
           timestamp: new Date(),
           isAI: true
         };
-        setMessages(prev => [...prev, aiMessage]);
+        setMessages(prev => {
+          const newMessages = [...prev, aiMessage];
+          // Auto-speak the AI response
+          if (isSupported) {
+            setTimeout(() => {
+              setSpeakingMessageId(aiMessage.id);
+              speak(data.response);
+            }, 100);
+          }
+          return newMessages;
+        });
       } else {
         throw new Error('Failed to get AI response');
       }
@@ -79,7 +122,17 @@ export default function ChatAssistant() {
         timestamp: new Date(),
         isError: true
       };
-      setMessages(prev => [...prev, aiMessage]);
+      setMessages(prev => {
+        const newMessages = [...prev, aiMessage];
+        // Auto-speak error message
+        if (isSupported) {
+          setTimeout(() => {
+            setSpeakingMessageId(aiMessage.id);
+            speak(aiMessage.content);
+          }, 100);
+        }
+        return newMessages;
+      });
     } finally {
       setIsTyping(false);
     }
@@ -93,6 +146,61 @@ export default function ChatAssistant() {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
+    }
+  };
+
+  const handleSpeakMessage = (messageId, content) => {
+    if (speakingMessageId === messageId && isSpeaking) {
+      // If this message is currently speaking, stop it
+      stop();
+      setSpeakingMessageId(null);
+    } else {
+      // Stop any current speech and start new one
+      stop();
+      setSpeakingMessageId(messageId);
+      speak(content);
+    }
+  };
+
+  const handlePauseSpeech = () => {
+    if (isPaused) {
+      resume();
+    } else {
+      pause();
+    }
+  };
+
+  const handleStopSpeech = () => {
+    stop();
+    setSpeakingMessageId(null);
+  };
+
+  // Clean up speech when component unmounts
+  useEffect(() => {
+    return () => {
+      stop();
+    };
+  }, [stop]);
+
+  // Update speaking state when speech ends
+  useEffect(() => {
+    if (!isSpeaking && speakingMessageId !== null) {
+      setSpeakingMessageId(null);
+    }
+  }, [isSpeaking, speakingMessageId]);
+
+  // Update input with speech transcript
+  useEffect(() => {
+    if (transcript && isListening) {
+      setInputValue(transcript);
+    }
+  }, [transcript, isListening]);
+
+  const handleMicClick = () => {
+    if (isListening) {
+      stopListening();
+    } else {
+      startListening();
     }
   };
 
@@ -132,7 +240,19 @@ export default function ChatAssistant() {
                 <h3 className="text-white font-semibold">AI Mentor</h3>
                 <p className="text-white/60 text-sm">Always here to help</p>
               </div>
-              <div className="ml-auto">
+              <div className="ml-auto flex items-center space-x-3">
+                {/* Global speech control */}
+                {isSupported && isSpeaking && (
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handleStopSpeech}
+                    className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white/80 hover:text-white transition-all duration-200"
+                    title="Stop speaking"
+                  >
+                    <VolumeX size={16} />
+                  </motion.button>
+                )}
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               </div>
             </div>
@@ -149,31 +269,65 @@ export default function ChatAssistant() {
                   exit={{ opacity: 0, y: -20 }}
                   className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${
-                    message.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''
-                  }`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      message.type === 'user' 
-                        ? 'bg-gradient-to-r from-secondary to-accent' 
-                        : 'bg-gradient-to-r from-primary to-secondary'
+                  <div className={`flex flex-col ${message.type === 'user' ? 'items-end' : 'items-start'}`}>
+                    <div className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${
+                      message.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''
                     }`}>
-                      {message.type === 'user' ? <User size={16} className="text-white" /> : <Bot size={16} className="text-white" />}
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                        message.type === 'user' 
+                          ? 'bg-gradient-to-r from-secondary to-accent' 
+                          : 'bg-gradient-to-r from-primary to-secondary'
+                      }`}>
+                        {message.type === 'user' ? <User size={16} className="text-white" /> : <Bot size={16} className="text-white" />}
+                      </div>
+                      <div className={`p-3 rounded-2xl ${
+                        message.type === 'user'
+                          ? 'bg-gradient-to-r from-secondary to-accent text-white'
+                          : message.isError
+                          ? 'bg-red-500/20 border border-red-500/30 text-white'
+                          : 'bg-white/10 text-white'
+                      }`}>
+                        <p className="text-sm">{message.content}</p>
+                        {message.isAI && (
+                          <div className="flex items-center mt-2 text-xs text-white/60">
+                            <Bot size={12} className="mr-1" />
+                            <span>AI-powered response</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className={`p-3 rounded-2xl ${
-                      message.type === 'user'
-                        ? 'bg-gradient-to-r from-secondary to-accent text-white'
-                        : message.isError
-                        ? 'bg-red-500/20 border border-red-500/30 text-white'
-                        : 'bg-white/10 text-white'
-                    }`}>
-                      <p className="text-sm">{message.content}</p>
-                      {message.isAI && (
-                        <div className="flex items-center mt-2 text-xs text-white/60">
-                          <Bot size={12} className="mr-1" />
-                          <span>AI-powered response</span>
-                        </div>
-                      )}
-                    </div>
+                    
+                    {/* Speech controls for AI messages */}
+                    {message.type === 'ai' && isSupported && (
+                      <div className="flex items-center mt-2 space-x-2">
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => handleSpeakMessage(message.id, message.content)}
+                          className="p-1 bg-white/10 hover:bg-white/20 rounded-lg text-white/60 hover:text-white transition-all duration-200"
+                          title={speakingMessageId === message.id && isSpeaking ? "Stop speaking" : "Speak message"}
+                        >
+                          {speakingMessageId === message.id && isSpeaking ? (
+                            <VolumeX size={14} />
+                          ) : (
+                            <Volume2 size={14} />
+                          )}
+                        </motion.button>
+                        
+                        {/* Pause/Resume button - only show when this message is speaking */}
+                        {speakingMessageId === message.id && isSpeaking && (
+                          <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={handlePauseSpeech}
+                            className="p-1 bg-white/10 hover:bg-white/20 rounded-lg text-white/60 hover:text-white transition-all duration-200"
+                            title={isPaused ? "Resume" : "Pause"}
+                          >
+                            {isPaused ? <Play size={14} /> : <Pause size={14} />}
+                          </motion.button>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -234,19 +388,28 @@ export default function ChatAssistant() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask me anything..."
+                  placeholder={isListening ? "Listening..." : "Ask me anything..."}
                   rows="1"
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                 />
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 glass rounded-lg text-white/60 hover:text-white"
-              >
-                <Mic size={20} />
-              </motion.button>
+              {/* Microphone Button with Speech-to-Text */}
+              {isSpeechRecognitionSupported && (
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleMicClick}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    isListening
+                      ? 'bg-red-500/20 border border-red-500/50 text-red-400 animate-pulse'
+                      : 'glass text-white/60 hover:text-white'
+                  }`}
+                  title={isListening ? "Stop listening" : "Start voice input"}
+                >
+                  <Mic size={20} />
+                </motion.button>
+              )}
 
               <motion.button
                 whileHover={{ scale: 1.1 }}

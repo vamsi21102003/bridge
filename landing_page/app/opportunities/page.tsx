@@ -314,7 +314,7 @@ const OpportunitiesPage: React.FC = () => {
             Let our AI analyze your skills and preferences to find the perfect opportunities for you
           </p>
           <a 
-            href="https://bput1.tecosys.ai/" 
+            href="https://bput2.tecosys.ai/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-white text-purple-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
